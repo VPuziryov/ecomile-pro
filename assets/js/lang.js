@@ -1,22 +1,33 @@
 (function () {
-  if (localStorage.getItem('ecomile_lang_selected')) return;
+  const path = window.location.pathname.toLowerCase();
+
+  // Если уже внутри языковой версии — ничего не делаем
+  if (
+    path.startsWith('/ru/') ||
+    path.startsWith('/en/') ||
+    path.startsWith('/vn/')
+  ) {
+    return;
+  }
 
   const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
 
-  const ruLangs = ['ru', 'uk', 'be', 'kk', 'uz', 'az', 'hy', 'ka'];
-  const isRULang = ruLangs.some(code => lang.startsWith(code));
+  // Языки бывших стран СНГ
+  const ruLangs = [
+    'ru','uk','be','kk','uz','az','hy','ka','ky','tg','tk'
+  ];
 
-  if (isRULang) {
-    localStorage.setItem('ecomile_lang_selected', 'ru');
+  const isCIS = ruLangs.some(code => lang.startsWith(code));
+
+  if (isCIS) {
+    window.location.replace('/ru/');
     return;
   }
 
   if (lang.startsWith('vi')) {
-    localStorage.setItem('ecomile_lang_selected', 'vn');
     window.location.replace('/vn/');
     return;
   }
 
-  localStorage.setItem('ecomile_lang_selected', 'en');
   window.location.replace('/en/');
 })();

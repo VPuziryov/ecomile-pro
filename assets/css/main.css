@@ -351,3 +351,23 @@ hr {
 .page-product .brandos hr {
   margin: 40px 0 32px;
 }
+
+.lang-switch {
+  margin-top: 12px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  color: #999;
+  margin: 0 4px;
+}
+
+.lang-switch a.active {
+  color: #ffffff;
+}
+
+.lang-switch a:hover {
+  color: #ffffff;
+}
