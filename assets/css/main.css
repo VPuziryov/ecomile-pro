@@ -23,21 +23,82 @@ body {
   line-height: 1.55;
 }
 
-/* ========== LAYOUT CORE ========== */
+/* ================= LAYOUT ================= */
 
 .wrapper {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 72px 32px;
+  padding: 56px 32px 64px;
 }
 
-/* ЕДИНАЯ ОСЬ КОНТЕНТА */
 .content-box {
   max-width: 820px;
-  padding: 56px 64px;
+  padding: 48px 56px;
 }
 
-/* SURFACES */
+/* ================= HERO ================= */
+
+header {
+  margin-bottom: 48px;
+}
+
+.hero-surface {
+  padding: 28px 32px;
+}
+
+.hero-inner {
+  padding: 0;
+}
+
+.hero-content {
+  max-width: 100%;
+}
+
+header h1 {
+  font-size: 52px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+
+header p strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ================= CTA ================= */
+
+.cta {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.contact-line {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.contact-line a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+/* ================= SURFACE ================= */
+
 .surface {
   background: linear-gradient(
     180deg,
@@ -55,85 +116,35 @@ body {
   border-radius: 20px;
 }
 
-/* ========== HERO ========== */
+/* ================= SECTIONS ================= */
 
-header {
-  margin-bottom: 120px;
+section {
+  margin-top: 100px;
 }
 
-.hero-surface {
-  padding: 25px;
+section:first-of-type {
+  margin-top: 0;
 }
 
-.hero-inner {
-  padding: 0;
-}
-
-.hero-content {
-  max-width: 100%;
-}
-
-header h1 {
-  font-size: 56px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  margin: 0 0 20px;
-}
-
-header p strong {
-  display: block;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.muted {
-  color: var(--muted);
-}
-
-/* CTA */
-.cta {
-  display: inline-block;
-  margin-top: 32px;
-  padding: 14px 28px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.contact-line {
-  margin-top: 18px;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-.contact-line a {
-  color: var(--muted);
-  text-decoration: none;
-}
-
-/* ========== PRODUCTS ========== */
+/* ================= PRODUCTS ================= */
 
 .products {
-  margin-top: 120px;
+  margin-top: 56px;
 }
 
 h2 {
-  font-size: 32px;
-  margin-bottom: 40px;
+  font-size: 30px;
+  margin-bottom: 32px;
 }
 
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 28px;
 }
 
 .product {
-  padding: 32px;
+  padding: 28px;
   background: var(--surface);
   border-radius: 16px;
   transition: transform .2s ease, box-shadow .2s ease;
@@ -146,12 +157,12 @@ h2 {
 
 .product h3 {
   font-size: 20px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .product p {
   color: var(--muted);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .product a {
@@ -160,51 +171,10 @@ h2 {
   text-decoration: none;
 }
 
-/* ========== BRANDOS (FLAGMAN) ========== */
-
-.brandos {
-  margin-top: 120px;
-}
-
-.brandos-inner {
-  padding: 0;
-}
-
-.brandos-content {
-  border-left: 2px solid rgba(91,124,255,0.25);
-  padding-left: 24px;
-}
-
-.brandos h2 {
-  font-size: 36px;
-  margin-bottom: 24px;
-}
-
-.brandos-lead {
-  font-size: 21px;
-  font-weight: 500;
-  max-width: 700px;
-}
-
-.brandos-text {
-  font-size: 17px;
-  color: var(--muted);
-  max-width: 680px;
-  margin-bottom: 16px;
-}
-
-.brandos-link {
-  display: inline-block;
-  margin-top: 24px;
-  font-weight: 500;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-/* ===== CHATBOTS SECTION ===== */
+/* ================= CHATBOTS ================= */
 
 .chatbots {
-  margin-top: 140px;
+  margin-top: 100px;
 }
 
 .chatbots-content {
@@ -218,65 +188,62 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* ========== DIVIDER ========== */
+/* ================= BRANDOS ================= */
+
+.brandos {
+  margin-top: 100px;
+}
+
+.brandos-content {
+  border-left: 2px solid rgba(91,124,255,0.25);
+  padding-left: 24px;
+}
+
+.brandos h2 {
+  font-size: 34px;
+  margin-bottom: 24px;
+}
+
+.brandos-lead {
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 700px;
+}
+
+.brandos-text {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 680px;
+  margin-bottom: 16px;
+}
+
+.brandos-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ================= DIVIDER ================= */
 
 hr {
-  margin: 120px 0 64px;
+  margin: 80px 0 48px;
   border: none;
   border-top: 1px solid var(--line);
 }
 
-/* ========== RESPONSIVE ========== */
-
-@media (max-width: 1024px) {
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .wrapper {
-    padding: 64px 20px;
-  }
-
-  .content-box {
-    padding: 40px 24px;
-  }
-
-  header h1 {
-    font-size: 40px;
-  }
-
-  h2 {
-    font-size: 26px;
-  }
-
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .product {
-    padding: 28px;
-  }
-
-  .brandos-content,
-  .chatbots-text {
-    border-left: none;
-    padding-left: 0;
-  }
-}
-
-/* ================= PRODUCT PAGES (DENSE MODE) ================= */
+/* ================= PRODUCT PAGES ================= */
 
 .page-product .wrapper {
   padding: 64px 32px;
 }
 
 .page-product header {
-  margin-bottom: 72px;
+  margin-bottom: 64px;
 }
 
-.page-product .brandos {
+.page-product section {
   margin-top: 72px;
 }
 
@@ -284,78 +251,11 @@ hr {
   padding: 40px 48px;
 }
 
-.page-product h2 {
-  margin-bottom: 24px;
-}
-
-.page-product .brandos-text {
-  margin-bottom: 12px;
-}
-
 .page-product hr {
   margin: 64px 0 40px;
 }
 
-@media (max-width: 640px) {
-  .page-product .wrapper {
-    padding: 48px 20px;
-  }
-
-  .page-product .content-box {
-    padding: 32px 20px;
-  }
-
-  .page-product .brandos {
-    margin-top: 48px;
-  }
-}
-
-/* ===== FINAL BLOCK TIGHTEN ===== */
-
-.page-product section:last-of-type {
-  margin-top: 72px;
-}
-
-.page-product footer {
-  margin-top: 48px;
-}
-
-.page-product footer hr {
-  margin-top: 48px;
-}
-
-/* ===== BRANDOS MID SECTIONS TIGHTEN ===== */
-
-/* уменьшаем расстояние между блоками */
-.page-product .brandos {
-  margin-top: 56px;
-}
-
-/* первый блок после hero — ещё плотнее */
-.page-product .brandos:first-of-type {
-  margin-top: 40px;
-}
-
-/* уменьшаем внутренний воздух */
-.page-product .brandos .content-box {
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-/* заголовки не должны толкать экран */
-.page-product .brandos h2 {
-  margin-bottom: 20px;
-}
-
-/* текст плотнее */
-.page-product .brandos-text {
-  margin-bottom: 10px;
-}
-
-/* разделитель внутри "Как работает" */
-.page-product .brandos hr {
-  margin: 40px 0 32px;
-}
+/* ================= LANGUAGE ================= */
 
 .lang-switch {
   margin-top: 12px;
@@ -369,22 +269,52 @@ hr {
   margin: 0 4px;
 }
 
-.lang-switch a.active {
-  color: #ffffff;
-}
-
+.lang-switch a.active,
 .lang-switch a:hover {
   color: #ffffff;
 }
-section.surface {
-  margin-top: 120px;
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-section.surface .content-box {
-  padding: 25px 25px;
-}
-section.surface .cta {
-  margin-top: 40px;
-}
-.brandos {
-  margin-top: 100px;
+
+@media (max-width: 640px) {
+
+  .wrapper {
+    padding: 48px 20px 56px;
+  }
+
+  .content-box {
+    padding: 36px 20px;
+  }
+
+  header h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product {
+    padding: 24px;
+  }
+
+  .brandos-content,
+  .chatbots-content {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  section {
+    margin-top: 80px;
+  }
 }
