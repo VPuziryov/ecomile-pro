@@ -338,6 +338,8 @@ hr {
   color: var(--muted);
 }
 
+/* LEFT SIDE */
+
 .footer-left {
   display: flex;
   flex-direction: column;
@@ -370,9 +372,14 @@ hr {
   opacity: 0.7;
 }
 
+/* RIGHT SIDE */
+
 .footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   opacity: 0.7;
-  white-space: nowrap;
+  text-align: right;
 }
 
 .footer-right a {
@@ -395,6 +402,6 @@ hr {
   }
 
   .footer-right {
-    white-space: normal;
+    text-align: center;
   }
 }
