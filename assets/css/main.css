@@ -62,7 +62,7 @@ header {
 }
 
 .hero-surface {
-  padding: 0;
+  padding: 25px;
 }
 
 .hero-inner {
@@ -201,16 +201,21 @@ h2 {
   text-decoration: none;
 }
 
-/* ========== CHATBOTS & BELOW ========== */
+/* ===== CHATBOTS SECTION ===== */
 
-.chatbots-text {
-  border-left: 2px solid rgba(91,124,255,0.25);
-  padding-left: 24px;
+.chatbots {
+  margin-top: 140px;
 }
 
-.chatbots-text p {
-  font-size: 16px;
-  line-height: 1.6;
+.chatbots-content {
+  border-left: 2px solid rgba(91,124,255,0.25);
+  padding-left: 24px;
+  max-width: 720px;
+}
+
+.chatbots h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
 /* ========== DIVIDER ========== */
@@ -370,4 +375,16 @@ hr {
 
 .lang-switch a:hover {
   color: #ffffff;
+}
+section.surface {
+  margin-top: 120px;
+}
+section.surface .content-box {
+  padding: 25px 25px;
+}
+section.surface .cta {
+  margin-top: 40px;
+}
+.brandos {
+  margin-top: 100px;
 }
