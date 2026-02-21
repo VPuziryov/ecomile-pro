@@ -166,6 +166,14 @@ h2 {
   margin-bottom: 16px;
 }
 
+/* ================= CHATBOTS ================= */
+.chatbots-content {
+  max-width: 760px;
+  padding-left: 15px;
+}
+
+
+
 /* ================= BRANDOS ================= */
 
 .brandos h2 {
