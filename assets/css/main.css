@@ -21,7 +21,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont,
                "SF Pro Text", "Segoe UI",
                Inter, Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 /* ================= LAYOUT ================= */
@@ -29,12 +29,12 @@ body {
 .wrapper {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 80px 32px;
+  padding: 48px 32px 56px;
 }
 
 .content-box {
   max-width: 820px;
-  padding: 56px 64px;
+  padding: 48px 56px;
 }
 
 /* ================= SURFACES ================= */
@@ -59,25 +59,18 @@ body {
 /* ================= HERO ================= */
 
 header {
-  margin-bottom: 96px;
+  margin-bottom: 36px;
 }
 
 .hero-surface {
-  padding: 36px;
+  padding: 28px 32px;
 }
 
 header h1 {
-  font-size: 56px;
+  font-size: 52px;
   font-weight: 500;
   letter-spacing: -0.02em;
-  margin: 0 0 20px;
-}
-
-header p strong {
-  display: block;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 14px;
+  margin: 0 0 16px;
 }
 
 .muted {
@@ -99,8 +92,8 @@ header p strong {
 
 .cta {
   display: inline-block;
-  margin-top: 32px;
-  padding: 14px 28px;
+  margin-top: 24px;
+  padding: 13px 26px;
   background: var(--accent);
   color: #fff !important;
   border-radius: 10px;
@@ -110,7 +103,7 @@ header p strong {
 }
 
 .contact-line {
-  margin-top: 18px;
+  margin-top: 14px;
   font-size: 14px;
   color: var(--muted);
 }
@@ -123,33 +116,23 @@ header p strong {
 /* ===== HOMEPAGE FIRST SCREEN CONTROL ============ */
 /* ================================================= */
 
-body:not(.page-product) header {
-  margin-bottom: 48px;
-}
-
-body:not(.page-product) .wrapper {
-  padding-top: 56px;
-  padding-bottom: 72px;
-}
-
-.hero-surface {
-  padding: 28px 32px;
-}
-
 body:not(.page-product) section:first-of-type {
-  margin-top: 32px;
+  margin-top: 16px;
 }
 
 body:not(.page-product) section + section {
-  margin-top: 96px;
+  margin-top: 80px;
+}
+
+body:not(.page-product) h2 {
+  margin-bottom: 24px;
 }
 
 /* ================= HEADINGS ================= */
 
 h2 {
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 500;
-  margin-bottom: 36px;
 }
 
 /* ================= PRODUCTS GRID ================= */
@@ -157,11 +140,11 @@ h2 {
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 
 .product {
-  padding: 28px;
+  padding: 24px;
   background: var(--surface);
   border-radius: 16px;
   transition: transform .2s ease, box-shadow .2s ease;
@@ -173,42 +156,42 @@ h2 {
 }
 
 .product h3 {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 500;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .product p {
   color: var(--muted);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 /* ================= BRANDOS ================= */
 
 .brandos h2 {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 500;
 }
 
 .brandos-content {
   border-left: 2px solid rgba(91,124,255,0.25);
-  padding-left: 24px;
+  padding-left: 20px;
 }
 
 .brandos-lead {
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 500;
 }
 
 .brandos-text {
-  font-size: 17px;
+  font-size: 16px;
   color: var(--muted);
 }
 
 /* ================= DIVIDER ================= */
 
 hr {
-  margin: 96px 0 56px;
+  margin: 72px 0 48px;
   border: none;
   border-top: 1px solid var(--line);
 }
@@ -246,7 +229,7 @@ hr {
 
 .site-footer {
   margin-top: 48px;
-  padding: 32px 0;
+  padding: 28px 0;
   border-top: 1px solid var(--line);
 }
 
@@ -307,19 +290,19 @@ hr {
 @media (max-width: 640px) {
 
   .wrapper {
-    padding: 64px 20px;
+    padding: 48px 20px;
   }
 
   .content-box {
-    padding: 32px 20px;
+    padding: 28px 20px;
   }
 
   header h1 {
-    font-size: 40px;
+    font-size: 38px;
   }
 
   h2 {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .products-grid {
