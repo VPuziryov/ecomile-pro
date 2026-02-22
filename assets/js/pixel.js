@@ -27,25 +27,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll("a").forEach(function(link) {
 
-    link.addEventListener("click", function() {
+    link.addEventListener("click", function(event) {
 
       const href = link.getAttribute("href");
       if (!href || typeof fbq !== "function") return;
 
-      // --- Telegram = Lead ---
+      // --- Telegram (guaranteed send before redirect) ---
       if (href.includes("t.me")) {
+
+        event.preventDefault();
+
         fbq('track', 'Lead', {
           source: 'telegram',
           page_path: window.location.pathname
         });
+
+        setTimeout(function() {
+          window.location.href = href;
+        }, 200);
+
+        return;
       }
 
-      // --- Email = Lead ---
+      // --- Email (guaranteed send before redirect) ---
       if (href.startsWith("mailto:")) {
+
+        event.preventDefault();
+
         fbq('track', 'Lead', {
           source: 'email',
           page_path: window.location.pathname
         });
+
+        setTimeout(function() {
+          window.location.href = href;
+        }, 200);
+
+        return;
       }
 
       // --- GPT Agent open (exclude /gpt/ hub) ---
