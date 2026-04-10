@@ -15,12 +15,21 @@ fbq('track', 'PageView');
 // --- ViewContent after 7 seconds ---
 setTimeout(function () {
   if (typeof fbq === 'function') {
-    fbq('trackCustom', 'ViewContent_7s', {
-      page_path: window.location.pathname
-    });
+
+    // 👉 НЕ для mini-лендинга
+    if (!window.location.pathname.includes('dive-ads-mini')) {
+      fbq('trackCustom', 'ViewContent_7s', {
+        page_path: window.location.pathname
+      });
+    }
+
+    // 👉 только для mini-лендинга
+    if (window.location.pathname.includes('dive-ads-mini')) {
+      fbq('trackCustom', 'DiveLP_7s');
+    }
+
   }
 }, 7000);
-
 
 // --- Click tracking ---
 document.addEventListener("DOMContentLoaded", function () {
