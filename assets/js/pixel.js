@@ -49,6 +49,12 @@ telegram:"Click_Telegram_EasyAds_Asia",
 messenger:"Click_Messenger_EasyAds_Asia"
 },
 
+"easyads-pricing":{
+view:"ViewContent_EasyAds_Asia_Pricing_7s",
+telegram:"Click_Telegram_EasyAds_Asia",
+messenger:"Click_Messenger_EasyAds_Asia"
+},
+
 "diveads":{
 view:"ViewContent_DiveAds_7s",
 telegram:"Click_Telegram_DiveAds",
