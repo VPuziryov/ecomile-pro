@@ -64,7 +64,7 @@ header {
 }
 
 .hero-surface {
-  padding: 28px 32px;
+  padding: 18px 28px;
 }
 
 header h1 {
@@ -219,11 +219,11 @@ hr {
 }
 
 .page-product section {
-  margin-top: 48px;
+  margin-top: 24px;
 }
 
 .page-product .content-box {
-  padding: 36px 44px;
+  padding: 28px 40px;
 }
 
 .page-product h2 {
@@ -330,14 +330,6 @@ hr {
     text-align: center;
   }
 }
-/* ================= PRICING ================= */
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  align-items: stretch;
-}
 
 /* ================= PRICING ================= */
 
@@ -416,19 +408,7 @@ hr {
     color:#9db8ff;
 
 }
-/* ===== Easy Ads Pricing ===== */
 
-.page-product section.brandos{
-
-    padding:48px 0;
-
-}
-
-.page-product .hero-surface{
-
-    margin-bottom:40px;
-
-}
 .page-product .hero-content p{
 
     margin-bottom:18px;
