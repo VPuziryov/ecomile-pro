@@ -1,95 +1,160 @@
+// ======================================================
+// ECOMILE Pixel v2
+// ======================================================
+
 // Meta Pixel init
 !function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+{
+if(f.fbq)return;
+n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);
+
+}(window,document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '1403441134581587');
-fbq('track', 'PageView');
+fbq('init','1403441134581587');
+fbq('track','PageView');
 
 
-// --- ViewContent after 7 seconds ---
-setTimeout(function () {
-  if (typeof fbq === 'function') {
 
-    // 👉 НЕ для mini-лендинга
-    if (!window.location.pathname.includes('dive-ads-mini')) {
-      fbq('trackCustom', 'ViewContent_7s', {
-        page_path: window.location.pathname
-      });
-    }
+// ======================================================
+// Page mapping
+// ======================================================
 
-    // 👉 только для mini-лендинга
-    if (window.location.pathname.includes('dive-ads-mini')) {
-      fbq('trackCustom', 'DiveLP_7s');
-    }
+const body=document.body;
 
-  }
-}, 7000);
+const page=body.dataset.page || "";
 
-// --- Click tracking ---
-document.addEventListener("DOMContentLoaded", function () {
+const events={
 
-  document.querySelectorAll("a").forEach(function(link) {
+"ecomile-home":{
+view:"ViewContent_Ecomile_Home_7s",
+telegram:"Click_Telegram_Ecomile",
+messenger:"Click_Messenger_Ecomile"
+},
 
-    link.addEventListener("click", function(event) {
+"easyads-asia":{
+view:"ViewContent_EasyAds_Asia_7s",
+telegram:"Click_Telegram_EasyAds_Asia",
+messenger:"Click_Messenger_EasyAds_Asia"
+},
 
-      const href = link.getAttribute("href");
-      if (!href || typeof fbq !== "function") return;
+"diveads":{
+view:"ViewContent_DiveAds_7s",
+telegram:"Click_Telegram_DiveAds",
+messenger:"Click_Messenger_DiveAds"
+}
 
-      // --- Telegram (guaranteed send before redirect) ---
-      if (href.includes("t.me")) {
+};
 
-        event.preventDefault();
 
-        fbq('track', 'Lead', {
-          source: 'telegram',
-          page_path: window.location.pathname
-        });
 
-        setTimeout(function() {
-          window.location.href = href;
-        }, 200);
+// ======================================================
+// 7 seconds ViewContent
+// ======================================================
 
-        return;
-      }
+if(events[page]){
 
-      // --- Email (guaranteed send before redirect) ---
-      if (href.startsWith("mailto:")) {
+setTimeout(function(){
 
-        event.preventDefault();
+fbq(
+'trackCustom',
+events[page].view
+);
 
-        fbq('track', 'Lead', {
-          source: 'email',
-          page_path: window.location.pathname
-        });
+},7000);
 
-        setTimeout(function() {
-          window.location.href = href;
-        }, 200);
+}
 
-        return;
-      }
 
-      // --- GPT Agent open (exclude /gpt/ hub) ---
-      if (href.startsWith("/gpt/") && href !== "/gpt/") {
 
-        const agentName = href
-          .replace('/gpt/', '')
-          .replace(/\//g, '');
+// ======================================================
+// Click tracking
+// ======================================================
 
-        fbq('trackCustom', 'AgentOpen', {
-          agent: agentName,
-          page_path: window.location.pathname
-        });
-      }
+document.addEventListener("DOMContentLoaded",function(){
 
-    });
+document.querySelectorAll("a").forEach(function(link){
 
-  });
+link.addEventListener("click",function(e){
+
+const href=link.getAttribute("href");
+
+if(!href)return;
+
+if(!events[page])return;
+
+
+
+// Telegram
+
+if(href.includes("t.me")){
+
+e.preventDefault();
+
+fbq(
+'trackCustom',
+events[page].telegram
+);
+
+setTimeout(function(){
+
+window.open(
+href,
+"_blank",
+"noopener"
+);
+
+},150);
+
+return;
+
+}
+
+
+
+// Messenger
+
+if(
+href.includes("m.me") ||
+href.includes("messenger.com")
+){
+
+e.preventDefault();
+
+fbq(
+'trackCustom',
+events[page].messenger
+);
+
+setTimeout(function(){
+
+window.open(
+href,
+"_blank",
+"noopener"
+);
+
+},150);
+
+return;
+
+}
+
+
+
+});
+
+});
 
 });
