@@ -33,8 +33,9 @@ body {
 }
 
 .content-box {
-  max-width: 820px;
-  padding: 48px 56px;
+    width: 100%;
+    max-width: 1100px;
+    padding: 48px 56px;
 }
 
 /* ================= SURFACES ================= */
