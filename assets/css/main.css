@@ -339,12 +339,25 @@ hr {
   align-items: stretch;
 }
 
-.pricing-grid .product {
-  height: 100%;
+/* ================= PRICING ================= */
+
+.pricing-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    align-items:stretch;
 }
 
-@media (max-width: 1024px) {
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
+.pricing-grid .product{
+    height:100%;
+}
+
+@media (max-width:768px){
+
+    .pricing-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
 }
