@@ -330,3 +330,21 @@ hr {
     text-align: center;
   }
 }
+/* ================= PRICING ================= */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.pricing-grid .product {
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
