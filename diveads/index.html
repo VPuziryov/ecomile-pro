@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dive Ads</title>
+
+  <script>
+    (function () {
+      const lang = (navigator.language || '').toLowerCase();
+
+      const ruLangs = ['ru', 'uk', 'be', 'kk', 'uz', 'az', 'hy', 'ka'];
+      const isRussianLanguage = ruLangs.some(code => lang.startsWith(code));
+
+      if (isRussianLanguage) {
+        window.location.replace('/ru/dive-ads/');
+        return;
+      }
+
+      window.location.replace('/en/dive-ads/');
+    })();
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <p>
+      Choose language:
+      <a href="/ru/dive-ads/">Русский</a> |
+      <a href="/en/dive-ads/">English</a>
+    </p>
+  </noscript>
+</body>
+</html>
