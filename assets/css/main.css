@@ -435,3 +435,146 @@ hr {
     text-decoration:underline;
 
 }
+/* ======================================================
+   DIVEADS PRICING PATCH
+   (uses existing ECOMILE design system)
+====================================================== */
+
+/* ----- 3 pricing cards ----- */
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
+    margin-top:36px;
+    align-items:stretch;
+}
+
+.pricing-grid .product{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+/* ----- featured package ----- */
+
+.product-featured{
+    position:relative;
+    border:2px solid var(--accent);
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.35);
+}
+
+.product-featured:hover{
+    transform:translateY(-12px);
+}
+
+.product-badge{
+
+    position:absolute;
+
+    top:-14px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:7px 16px;
+
+    border-radius:999px;
+
+    background:var(--accent);
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:.05em;
+
+    text-transform:uppercase;
+
+}
+
+/* ----- monthly block ----- */
+
+.pricing-next{
+
+    margin-top:auto;
+
+    padding-top:18px;
+
+    border-top:1px solid var(--line);
+
+    text-align:center;
+
+}
+
+.pricing-next strong{
+
+    display:block;
+
+    margin-bottom:8px;
+
+}
+
+/* ----- additional services ----- */
+
+.pricing-path{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:24px;
+
+    margin-top:24px;
+
+}
+
+.pricing-step{
+
+    padding:24px;
+
+    background:var(--surface);
+
+    border-radius:16px;
+
+}
+
+.pricing-step h3{
+
+    margin-top:0;
+
+}
+
+/* ----- responsive ----- */
+
+@media (max-width:900px){
+
+    .pricing-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .pricing-path{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .product-featured{
+
+        transform:none;
+
+    }
+
+    .product-featured:hover{
+
+        transform:none;
+
+    }
+
+}
