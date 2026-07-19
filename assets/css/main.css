@@ -578,3 +578,12 @@ hr {
     }
 
 }
+.cta-outline{
+    background: transparent;
+    color: #5d7cff;
+    border: 1px solid #5d7cff;
+}
+
+.cta-outline:hover{
+    background: rgba(93,124,255,.08);
+}
