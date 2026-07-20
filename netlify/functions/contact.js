@@ -1,10 +1,43 @@
-exports.handler = async () => {
+exports.handler = async (event) => {
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      node: process.version
-    })
-  };
+    try {
+
+        const data = JSON.parse(event.body);
+
+        return {
+
+            statusCode: 200,
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                success: true,
+
+                received: data
+
+            })
+
+        };
+
+    } catch (e) {
+
+        return {
+
+            statusCode: 500,
+
+            body: JSON.stringify({
+
+                success: false,
+
+                error: e.message
+
+            })
+
+        };
+
+    }
 
 };
