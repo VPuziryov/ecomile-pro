@@ -112,7 +112,7 @@ Project: ${project}
 💬
 ${message || "-"}`;
 
-await fetch(
+const tgResponse = await fetch(
     `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
     {
         method: "POST",
@@ -123,16 +123,20 @@ await fetch(
             chat_id: process.env.TELEGRAM_CHAT_ID,
             text
         })
+        const tgResult = await tgResponse.json();
+
+console.log(tgResult);
     }
 );
 
     return {
-      statusCode: 200,
-      headers: corsHeaders,
-      body: JSON.stringify({
-        success: true
-      })
-    };
+  statusCode: 200,
+  headers: corsHeaders,
+  body: JSON.stringify({
+    success: true,
+    telegram: tgResult
+  })
+};
 
   } catch (err) {
 
