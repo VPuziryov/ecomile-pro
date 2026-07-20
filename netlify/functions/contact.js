@@ -1,5 +1,7 @@
 const { google } = require("googleapis");
 
+const fetch = global.fetch;
+
 const SHEET_NAME = "Leads";
 
 const corsHeaders = {
@@ -93,6 +95,36 @@ exports.handler = async (event) => {
         values: [row]
       }
     });
+
+    const text =
+`🔔 NEW LEAD
+
+Project: ${project}
+
+👤 ${name}
+
+📞 ${contact}
+
+🏢 ${company || "-"}
+
+🌐 ${website || "-"}
+
+💬
+${message || "-"}`;
+
+await fetch(
+    `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            chat_id: process.env.TELEGRAM_CHAT_ID,
+            text
+        })
+    }
+);
 
     return {
       statusCode: 200,
