@@ -5,112 +5,265 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DiveAds Contact Test</title>
+<title>DiveAds — Контакты</title>
+
+<style>
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fb;
+    color:#222;
+    margin:0;
+}
+
+.container{
+    max-width:760px;
+    margin:50px auto;
+    padding:40px;
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.small-title{
+    color:#6b7280;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin-bottom:8px;
+}
+
+h1{
+    margin:0 0 15px;
+    font-size:36px;
+}
+
+.lead{
+    color:#555;
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+.card{
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    padding:22px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin:0 0 10px;
+}
+
+.card p{
+    margin:0 0 18px;
+    color:#555;
+    line-height:1.5;
+}
+
+.btn{
+    display:inline-block;
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 24px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.form-title{
+    margin:45px 0 10px;
+}
+
+.form-text{
+    color:#555;
+    margin-bottom:25px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:18px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+button{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:14px 28px;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+#result{
+    margin-top:25px;
+    color:#0f766e;
+    white-space:pre-wrap;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<h2>DiveAds Contact Test</h2>
+<div class="container">
+
+<div class="small-title">DiveAds</div>
+
+<h1>Обсудим ваш проект</h1>
+
+<p class="lead">
+Выберите удобный способ связи.
+</p>
+
+<div class="card">
+
+<h3>💬 Telegram <span style="color:#2563eb;">★ Рекомендуем</span></h3>
+
+<p>
+Самый быстрый способ связаться с нами.
+</p>
+
+<a href="#telegram" class="btn">
+Перейти в Telegram
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>💬 Messenger</h3>
+
+<p>
+Если автоматический диалог не начался автоматически,
+просто отправьте сообщение с ключевым словом
+<strong>«ДАЙВ»</strong>.
+</p>
+
+<a href="#messenger" class="btn">
+Открыть Messenger
+</a>
+
+</div>
+
+<h2 class="form-title">
+Или заполните форму
+</h2>
+
+<p class="form-text">
+Если сейчас неудобно использовать мессенджеры,
+оставьте заявку — мы свяжемся с вами.
+</p>
 
 <form id="contactForm">
 
-    <p>
-        <input
-            type="text"
-            id="name"
-            placeholder="Name"
-            required>
-    </p>
+<input
+type="text"
+id="name"
+placeholder="Как вас зовут?"
+required>
 
-    <p>
-        <input
-            type="text"
-            id="contact"
-            placeholder="Email / Telegram / WhatsApp"
-            required>
-    </p>
+<input
+type="text"
+id="contact"
+placeholder="Email, Telegram или WhatsApp"
+required>
 
-    <p>
-        <input
-            type="text"
-            id="company"
-            placeholder="Company">
-    </p>
+<input
+type="text"
+id="company"
+placeholder="Название дайв-центра">
 
-    <p>
-        <input
-            type="text"
-            id="website"
-            placeholder="Website">
-    </p>
+<input
+type="text"
+id="website"
+placeholder="Сайт или Facebook">
 
-    <p>
-        <textarea
-            id="message"
-            placeholder="Message"></textarea>
-    </p>
+<textarea
+id="message"
+placeholder="Расскажите немного о проекте"></textarea>
 
-    <button type="submit">
-        Send
-    </button>
+<button type="submit">
+Отправить заявку
+</button>
 
 </form>
 
-<hr>
+<div id="result"></div>
 
-<pre id="result"></pre>
+</div>
 
 <script>
 
-const form = document.getElementById("contactForm");
+const form=document.getElementById("contactForm");
 
-form.addEventListener("submit", async function(e){
+form.addEventListener("submit",async function(e){
 
-    e.preventDefault();
+e.preventDefault();
 
-    const data = {
+const data={
 
-        project: "da",
+project:"da",
 
-        name: document.getElementById("name").value.trim(),
+name:document.getElementById("name").value.trim(),
 
-        contact: document.getElementById("contact").value.trim(),
+contact:document.getElementById("contact").value.trim(),
 
-        company: document.getElementById("company").value.trim(),
+company:document.getElementById("company").value.trim(),
 
-        website: document.getElementById("website").value.trim(),
+website:document.getElementById("website").value.trim(),
 
-        message: document.getElementById("message").value.trim()
+message:document.getElementById("message").value.trim()
 
-    };
+};
 
-    try{
+try{
 
-        const response = await fetch("/.netlify/functions/contact",{
+const response=await fetch("/.netlify/functions/contact",{
 
-            method:"POST",
+method:"POST",
 
-            headers:{
-                "Content-Type":"application/json"
-            },
+headers:{
+"Content-Type":"application/json"
+},
 
-            body: JSON.stringify(data)
+body:JSON.stringify(data)
 
-        });
+});
 
-        const result = await response.json();
+const result=await response.json();
 
-        document.getElementById("result").textContent =
-            JSON.stringify(result,null,2);
+document.getElementById("result").innerHTML=
+"✅ <strong>Спасибо!</strong><br><br>Ваша заявка успешно отправлена.<br>Обычно мы отвечаем в течение одного рабочего дня.";
 
-    }
-    catch(error){
+form.reset();
 
-        document.getElementById("result").textContent =
-            error.message;
+}
+catch(error){
 
-    }
+document.getElementById("result").textContent=error.message;
+
+}
 
 });
 
