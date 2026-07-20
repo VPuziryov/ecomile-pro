@@ -1,10 +1,9 @@
-exports.handler = async (event) => {
+exports.handler = async () => {
 
   return {
     statusCode: 200,
     body: JSON.stringify({
-      success: true,
-      message: "Netlify Function works!"
+      node: process.version
     })
   };
 
