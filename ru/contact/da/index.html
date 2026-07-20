@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Test</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DiveAds Contact Test</title>
+
 </head>
+
 <body>
 
 <h2>DiveAds Contact Test</h2>
@@ -12,23 +16,39 @@
 <form id="contactForm">
 
     <p>
-        <input type="text" id="name" placeholder="Name" required>
+        <input
+            type="text"
+            id="name"
+            placeholder="Name"
+            required>
     </p>
 
     <p>
-        <input type="text" id="contact" placeholder="Email / Telegram / WhatsApp" required>
+        <input
+            type="text"
+            id="contact"
+            placeholder="Email / Telegram / WhatsApp"
+            required>
     </p>
 
     <p>
-        <input type="text" id="company" placeholder="Company">
+        <input
+            type="text"
+            id="company"
+            placeholder="Company">
     </p>
 
     <p>
-        <input type="text" id="website" placeholder="Website">
+        <input
+            type="text"
+            id="website"
+            placeholder="Website">
     </p>
 
     <p>
-        <textarea id="message" placeholder="Message"></textarea>
+        <textarea
+            id="message"
+            placeholder="Message"></textarea>
     </p>
 
     <button type="submit">
@@ -37,47 +57,60 @@
 
 </form>
 
-<div id="result"></div>
+<hr>
+
+<pre id="result"></pre>
 
 <script>
 
-document.getElementById('contactForm').addEventListener('submit', async (e)=>{
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", async function(e){
 
     e.preventDefault();
 
     const data = {
 
-        name: document.getElementById('name').value,
-        contact: document.getElementById('contact').value,
-        company: document.getElementById('company').value,
-        website: document.getElementById('website').value,
-        message: document.getElementById('message').value
+        project: "da",
+
+        name: document.getElementById("name").value.trim(),
+
+        contact: document.getElementById("contact").value.trim(),
+
+        company: document.getElementById("company").value.trim(),
+
+        website: document.getElementById("website").value.trim(),
+
+        message: document.getElementById("message").value.trim()
 
     };
 
-    const res = await fetch('/.netlify/functions/contact',{
+    try{
 
-        method:'POST',
+        const response = await fetch("/.netlify/functions/contact",{
 
-        headers:{
-            'Content-Type':'application/json'
-        },
+            method:"POST",
 
-        body: JSON.stringify({
-    project: "da",      // или ea / eaa
-    name,
-    contact,
-    company,
-    website,
-    message
-})
+            headers:{
+                "Content-Type":"application/json"
+            },
 
-    });
+            body: JSON.stringify(data)
 
-    const json = await res.json();
+        });
 
-    document.getElementById('result').innerHTML =
-        JSON.stringify(json);
+        const result = await response.json();
+
+        document.getElementById("result").textContent =
+            JSON.stringify(result,null,2);
+
+    }
+    catch(error){
+
+        document.getElementById("result").textContent =
+            error.message;
+
+    }
 
 });
 
