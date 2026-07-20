@@ -63,7 +63,14 @@ document.getElementById('contactForm').addEventListener('submit', async (e)=>{
             'Content-Type':'application/json'
         },
 
-        body:JSON.stringify(data)
+        body: JSON.stringify({
+    project: "da",      // или ea / eaa
+    name,
+    contact,
+    company,
+    website,
+    message
+})
 
     });
 
