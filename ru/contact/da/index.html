@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,176 +8,147 @@
 
 <title>DiveAds — Контакты</title>
 
-<style>
+<meta name="description" content="Свяжитесь с DiveAds удобным способом. Telegram, Messenger или контактная форма.">
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f5f7fb;
-    color:#222;
-    margin:0;
-}
-
-.container{
-    max-width:760px;
-    margin:50px auto;
-    padding:40px;
-    background:#fff;
-    border-radius:14px;
-    box-shadow:0 8px 30px rgba(0,0,0,.08);
-}
-
-.small-title{
-    color:#6b7280;
-    font-size:14px;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    margin-bottom:8px;
-}
-
-h1{
-    margin:0 0 15px;
-    font-size:36px;
-}
-
-.lead{
-    color:#555;
-    font-size:18px;
-    margin-bottom:35px;
-}
-
-.card{
-    border:1px solid #e5e7eb;
-    border-radius:10px;
-    padding:22px;
-    margin-bottom:18px;
-}
-
-.card h3{
-    margin:0 0 10px;
-}
-
-.card p{
-    margin:0 0 18px;
-    color:#555;
-    line-height:1.5;
-}
-
-.btn{
-    display:inline-block;
-    background:#2563eb;
-    color:#fff;
-    text-decoration:none;
-    padding:12px 24px;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.btn:hover{
-    opacity:.9;
-}
-
-.form-title{
-    margin:45px 0 10px;
-}
-
-.form-text{
-    color:#555;
-    margin-bottom:25px;
-}
-
-input,
-textarea{
-    width:100%;
-    padding:14px;
-    margin-bottom:18px;
-    border:1px solid #d1d5db;
-    border-radius:8px;
-    font-size:15px;
-    box-sizing:border-box;
-}
-
-textarea{
-    min-height:140px;
-    resize:vertical;
-}
-
-button{
-    background:#2563eb;
-    color:#fff;
-    border:none;
-    padding:14px 28px;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:.9;
-}
-
-#result{
-    margin-top:25px;
-    color:#0f766e;
-    white-space:pre-wrap;
-}
-
-</style>
+<link rel="stylesheet" href="/assets/css/main.css?v=20260720">
 
 </head>
 
-<body>
+<body class="page-product">
 
-<div class="container">
+<div class="wrapper">
 
-<div class="small-title">DiveAds</div>
+<header>
 
-<h1>Обсудим ваш проект</h1>
+<div class="surface hero-surface">
 
-<p class="lead">
+<div class="hero-content">
+
+<div class="small-title">
+
+DiveAds
+
+</div>
+
+<h1>
+
+Обсудим ваш проект
+
+</h1>
+
+<p class="brandos-lead">
+
 Выберите удобный способ связи.
+
 </p>
 
-<div class="card">
+<p class="muted">
 
-<h3>💬 Telegram <span style="color:#2563eb;">★ Рекомендуем</span></h3>
+Если вам удобнее начать разговор сразу —
+используйте Telegram или Messenger.
+Если сейчас это неудобно —
+оставьте заявку через форму ниже.
+
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- CONTACT CHANNELS -->
+
+<section>
+
+<div class="products-grid">
+
+<div class="product">
+
+<h3>
+
+💬 Telegram
+
+<span class="contact-badge">
+
+★ Рекомендуем
+
+</span>
+
+</h3>
 
 <p>
-Самый быстрый способ связаться с нами.
+
+Самый быстрый способ обсудить проект.
+
 </p>
 
-<a href="#telegram" class="btn">
+<a
+class="cta"
+href="#telegram">
+
 Перейти в Telegram
+
 </a>
 
 </div>
 
-<div class="card">
+<div class="product">
 
-<h3>💬 Messenger</h3>
+<h3>
+
+💬 Messenger
+
+</h3>
 
 <p>
-Если автоматический диалог не начался автоматически,
-просто отправьте сообщение с ключевым словом
+
+Если диалог не начался автоматически,
+отправьте сообщение
+с ключевым словом
+
 <strong>«ДАЙВ»</strong>.
+
 </p>
 
-<a href="#messenger" class="btn">
+<a
+class="cta"
+href="#messenger">
+
 Открыть Messenger
+
 </a>
 
 </div>
 
-<h2 class="form-title">
-Или заполните форму
+</div>
+
+</section>
+
+<!-- CONTACT FORM -->
+
+<section class="surface">
+
+<div class="content-box">
+
+<h2>
+
+Или оставьте заявку
+
 </h2>
 
-<p class="form-text">
+<p class="muted">
+
 Если сейчас неудобно использовать мессенджеры,
-оставьте заявку — мы свяжемся с вами.
+заполните короткую форму.
+Мы свяжемся с вами
+в течение одного рабочего дня.
+
 </p>
 
-<form id="contactForm">
-
+<form
+id="contactForm"
+class="contact-form">
 <input
 type="text"
 id="name"
@@ -203,8 +175,12 @@ placeholder="Сайт или Facebook">
 id="message"
 placeholder="Расскажите немного о проекте"></textarea>
 
-<button type="submit">
+<button
+class="cta"
+type="submit">
+
 Отправить заявку
+
 </button>
 
 </form>
@@ -213,7 +189,62 @@ placeholder="Расскажите немного о проекте"></textarea>
 
 </div>
 
+</section>
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<div class="footer-left">
+
+<div class="footer-copy">
+
+© 2026
+
+<a href="/"
+class="footer-brand-link">
+
+ECOMILE
+
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-right">
+
+<div>
+
+DiveAds
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+
 <script>
+
+const CONFIG={
+
+PROJECT:"da",
+
+TELEGRAM_URL:"#telegram",
+
+MESSENGER_URL:"#messenger",
+
+KEYWORD:"ДАЙВ"
+
+};
+
+document.querySelector('a[href="#telegram"]').href=CONFIG.TELEGRAM_URL;
+
+document.querySelector('a[href="#messenger"]').href=CONFIG.MESSENGER_URL;
 
 const form=document.getElementById("contactForm");
 
@@ -223,7 +254,7 @@ e.preventDefault();
 
 const data={
 
-project:"da",
+project:CONFIG.PROJECT,
 
 name:document.getElementById("name").value.trim(),
 
@@ -251,17 +282,46 @@ body:JSON.stringify(data)
 
 });
 
-const result=await response.json();
+await response.json();
 
-document.getElementById("result").innerHTML=
-"✅ <strong>Спасибо!</strong><br><br>Ваша заявка успешно отправлена.<br>Обычно мы отвечаем в течение одного рабочего дня.";
+document.getElementById("result").innerHTML=`
+
+<div class="contact-success">
+
+<h3>✅ Спасибо!</h3>
+
+<p>
+Ваша заявка успешно отправлена.
+</p>
+
+<p>
+Обычно мы отвечаем
+в течение одного рабочего дня.
+</p>
+
+</div>
+
+`;
 
 form.reset();
 
 }
 catch(error){
 
-document.getElementById("result").textContent=error.message;
+document.getElementById("result").innerHTML=`
+
+<div class="contact-error">
+
+Произошла ошибка.<br>
+
+Попробуйте позже
+или воспользуйтесь Telegram.
+
+</div>
+
+`;
+
+console.error(error);
 
 }
 
@@ -270,4 +330,5 @@ document.getElementById("result").textContent=error.message;
 </script>
 
 </body>
+
 </html>

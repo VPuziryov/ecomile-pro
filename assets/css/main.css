@@ -587,3 +587,144 @@ hr {
 .cta-outline:hover{
     background: rgba(93,124,255,.08);
 }
+/* ================= CONTACT ================= */
+
+.contact-badge{
+
+    display:inline-block;
+
+    margin-left:10px;
+
+    padding:4px 10px;
+
+    border-radius:999px;
+
+    background:rgba(91,124,255,.18);
+
+    color:var(--accent);
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.contact-form{
+
+    margin-top:28px;
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+    width:100%;
+
+    margin-bottom:18px;
+
+    padding:14px 16px;
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    border:1px solid var(--line);
+
+    border-radius:10px;
+
+    font:inherit;
+
+    transition:border-color .2s ease,
+               box-shadow .2s ease;
+
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+
+    color:var(--muted);
+
+}
+
+.contact-form textarea{
+
+    min-height:180px;
+
+    resize:vertical;
+
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+    outline:none;
+
+    border-color:var(--accent);
+
+    box-shadow:0 0 0 3px rgba(91,124,255,.12);
+
+}
+
+.contact-form button{
+
+    margin-top:6px;
+
+}
+
+.contact-success{
+
+    margin-top:28px;
+
+    padding:22px;
+
+    border-radius:14px;
+
+    background:rgba(56,178,107,.12);
+
+    border:1px solid rgba(56,178,107,.35);
+
+}
+
+.contact-success h3{
+
+    margin-top:0;
+
+    margin-bottom:10px;
+
+    color:#38b26b;
+
+}
+
+.contact-success p{
+
+    margin:8px 0;
+
+    color:var(--text);
+
+}
+
+.contact-error{
+
+    margin-top:28px;
+
+    padding:22px;
+
+    border-radius:14px;
+
+    background:rgba(255,80,80,.10);
+
+    border:1px solid rgba(255,80,80,.35);
+
+    color:#ffb4b4;
+
+}
+
+@media (max-width:640px){
+
+    .contact-form button{
+
+        width:100%;
+
+    }
+
+}
