@@ -123,9 +123,9 @@ const tgResponse = await fetch(
             chat_id: process.env.TELEGRAM_CHAT_ID,
             text
         })
-        const tgResult = await tgResponse.json();
+        // const tgResult = await tgResponse.json();
 
-console.log(tgResult);
+// console.log(tgResult);
     }
 );
 
