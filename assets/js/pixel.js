@@ -59,7 +59,14 @@ messenger:"Click_Messenger_EasyAds_Asia"
 view:"ViewContent_DiveAds_7s",
 telegram:"Click_Telegram_DiveAds",
 messenger:"Click_Messenger_DiveAds"
-}
+},
+
+"diveads-contact":{
+    view:"ViewContent_DiveAds_Contact_7s",
+    telegram:"Click_Telegram_DiveAds",
+    messenger:"Click_Messenger_DiveAds",
+    lead:"Lead_Form_DiveAds"
+},
 
 };
 
