@@ -286,7 +286,13 @@ body:JSON.stringify(data)
 
 });
 
-await response.json();
+const result=await response.json();
+
+if(!result.success){
+
+throw new Error(result.error || "Server error");
+
+}
 
 trackLead();
 
