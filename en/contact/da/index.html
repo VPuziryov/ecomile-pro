@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DiveAds — Contact</title>
+
+<meta name="description" content="Contact DiveAds using Telegram, Messenger or our contact form.">
+
+<link rel="stylesheet" href="/assets/css/main.css?v=20260720">
+
+</head>
+
+<body class="page-product">
+
+<div class="wrapper">
+
+<header>
+
+<div class="surface hero-surface">
+
+<div class="hero-content">
+
+<div class="small-title">
+
+DiveAds
+
+</div>
+
+<h1>
+
+Let's discuss your project
+
+</h1>
+
+<p class="brandos-lead">
+
+Choose the most convenient way to get in touch.
+
+</p>
+
+<p class="muted">
+
+If you'd like to start the conversation immediately,
+use Telegram or Messenger.
+If that's not convenient,
+simply fill out the contact form below.
+
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- CONTACT CHANNELS -->
+
+<section>
+
+<div class="products-grid">
+
+<div class="product">
+
+<h3>
+
+Telegram
+
+<span class="contact-badge">
+
+★ Recommended
+
+</span>
+
+</h3>
+
+<p>
+
+The fastest way to discuss your project.
+
+</p>
+
+<a
+class="cta"
+href="#telegram">
+
+Open Telegram
+
+</a>
+
+</div>
+
+<div class="product">
+
+<h3>
+
+Messenger
+
+</h3>
+
+<p>
+
+If the conversation doesn't start automatically,
+simply send the keyword
+
+<strong>"DIVE"</strong>.
+
+</p>
+
+<a
+class="cta"
+href="#messenger">
+
+Open Messenger
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT FORM -->
+
+<section class="surface">
+
+<div class="content-box">
+
+<h2>
+
+Or send us a message
+
+</h2>
+
+<p class="muted">
+
+If messaging isn't convenient right now,
+fill out the short form below.
+We'll usually reply within one business day.
+
+</p>
+
+<form
+id="contactForm"
+class="contact-form">
+<input
+type="text"
+id="name"
+placeholder="Your name"
+required>
+
+<input
+type="text"
+id="contact"
+placeholder="Email, Telegram or WhatsApp"
+required>
+
+<input
+type="text"
+id="company"
+placeholder="Dive center name">
+
+<input
+type="text"
+id="website"
+placeholder="Website or Facebook page">
+
+<textarea
+id="message"
+placeholder="Tell us a little about your project"></textarea>
+
+<button
+class="cta"
+type="submit">
+
+Send Request
+
+</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+</section>
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<div class="footer-left">
+
+<div class="footer-copy">
+
+© 2026
+
+<a href="/"
+class="footer-brand-link">
+
+ECOMILE
+
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-right">
+
+<div>
+
+DiveAds
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+
+<script>
+
+const CONFIG={
+
+PROJECT:"da",
+
+TELEGRAM_URL:"https://telegram.me/puziryov_bot?start=w57399778",
+
+MESSENGER_URL:"https://m.me/puziryov?ref=contact-da-en",
+
+KEYWORD:"DIVE"
+
+};
+
+document.querySelector('a[href="#telegram"]').href=CONFIG.TELEGRAM_URL;
+
+document.querySelector('a[href="#messenger"]').href=CONFIG.MESSENGER_URL;
+
+const form=document.getElementById("contactForm");
+
+form.addEventListener("submit",async function(e){
+
+e.preventDefault();
+
+const data={
+
+project:CONFIG.PROJECT,
+
+name:document.getElementById("name").value.trim(),
+
+contact:document.getElementById("contact").value.trim(),
+
+company:document.getElementById("company").value.trim(),
+
+website:document.getElementById("website").value.trim(),
+
+message:document.getElementById("message").value.trim()
+
+};
+
+try{
+
+await fetch("/.netlify/functions/contact",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify(data)
+
+});
+
+document.getElementById("result").innerHTML=`
+
+<div class="contact-success">
+
+<h3>✅ Thank you!</h3>
+
+<p>
+
+Your request has been sent successfully.
+
+</p>
+
+<p>
+
+We usually reply within one business day.
+
+</p>
+
+</div>
+
+`;
+
+form.reset();
+
+}
+catch(error){
+
+document.getElementById("result").innerHTML=`
+
+<div class="contact-error">
+
+Something went wrong.<br>
+
+Please try again later
+or contact us via Telegram.
+
+</div>
+
+`;
+
+console.error(error);
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
