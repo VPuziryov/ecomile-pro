@@ -12,9 +12,13 @@
 
 <link rel="stylesheet" href="/assets/css/main.css?v=20260720">
 
+<script src="/assets/js/pixel.js" defer></script>
+
 </head>
 
-<body class="page-product">
+<body
+class="page-product"
+data-page="diveads-contact">
 
 <div class="wrapper">
 
@@ -283,6 +287,8 @@ body:JSON.stringify(data)
 });
 
 await response.json();
+
+trackLead();
 
 document.getElementById("result").innerHTML=`
 

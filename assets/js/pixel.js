@@ -37,28 +37,54 @@ const page=body.dataset.page || "";
 
 const events={
 
+    // ECOMILE
+
 "ecomile-home":{
-view:"ViewContent_Ecomile_Home_7s",
-telegram:"Click_Telegram_Ecomile",
-messenger:"Click_Messenger_Ecomile"
+view:"ViewContent_Ecomile_Home_7s"
 },
 
-"easyads-asia":{
-view:"ViewContent_EasyAds_Asia_7s",
-telegram:"Click_Telegram_EasyAds_Asia",
-messenger:"Click_Messenger_EasyAds_Asia"
+// EasyAds
+
+"easyads":{
+view:"ViewContent_EasyAds_7s"
 },
 
 "easyads-pricing":{
-view:"ViewContent_EasyAds_Asia_Pricing_7s",
-telegram:"Click_Telegram_EasyAds_Asia",
-messenger:"Click_Messenger_EasyAds_Asia"
+view:"ViewContent_EasyAds_Pricing_7s"
 },
 
+"easyads-contact":{
+view:"ViewContent_EasyAds_Contact_7s",
+telegram:"Click_Telegram_EasyAds",
+messenger:"Click_Messenger_EasyAds",
+lead:"Lead_Form_EasyAds"
+},
+
+// EasyAds Asia
+
+"easyads-asia":{
+view:"ViewContent_EasyAds_Asia_7s"
+},
+
+"easyads-asia-pricing":{
+view:"ViewContent_EasyAds_Asia_Pricing_7s"
+},
+
+"easyads-asia-contact":{
+view:"ViewContent_EasyAds_Asia_Contact_7s",
+telegram:"Click_Telegram_EasyAds_Asia",
+messenger:"Click_Messenger_EasyAds_Asia",
+lead:"Lead_Form_EasyAds_Asia"
+},
+
+// DiveAds
+
 "diveads":{
-view:"ViewContent_DiveAds_7s",
-telegram:"Click_Telegram_DiveAds",
-messenger:"Click_Messenger_DiveAds"
+view:"ViewContent_DiveAds_7s"
+},
+
+"diveads-pricing":{
+view:"ViewContent_DiveAds_Pricing_7s"
 },
 
 "diveads-contact":{
@@ -171,3 +197,19 @@ return;
 });
 
 });
+// ======================================================
+// Lead
+// ======================================================
+
+window.trackLead=function(){
+
+if(!events[page]) return;
+
+if(!events[page].lead) return;
+
+fbq(
+'trackCustom',
+events[page].lead
+);
+
+};
