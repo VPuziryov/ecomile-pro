@@ -270,7 +270,7 @@ message:document.getElementById("message").value.trim()
 
 try{
 
-await fetch("/.netlify/functions/contact",{
+const response=await fetch("/.netlify/functions/contact",{
 
 method:"POST",
 
@@ -281,6 +281,16 @@ headers:{
 body:JSON.stringify(data)
 
 });
+
+const result=await response.json();
+
+if(!result.success){
+
+throw new Error(result.error || "Server error");
+
+}
+
+trackLead();
 
 document.getElementById("result").innerHTML=`
 
