@@ -728,3 +728,21 @@ hr {
     }
 
 }
+@media (max-width:640px){
+
+    .page-product .hero-content{
+        max-width:100%;
+        width:100%;
+    }
+
+    .hero-inner{
+        width:100%;
+    }
+
+    .cta{
+        display:block;
+        width:100%;
+        text-align:center;
+    }
+
+}
