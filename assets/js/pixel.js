@@ -137,26 +137,29 @@ if(!events[page])return;
 
 // Telegram
 
-if(href.includes("t.me")){
+if(
+    href.includes("t.me") ||
+    href.includes("telegram.me")
+){
 
-e.preventDefault();
+    e.preventDefault();
 
-fbq(
-'trackCustom',
-events[page].telegram
-);
+    fbq(
+        'trackCustom',
+        events[page].telegram
+    );
 
-setTimeout(function(){
+    setTimeout(function(){
 
-window.open(
-href,
-"_blank",
-"noopener"
-);
+        window.open(
+            href,
+            "_blank",
+            "noopener"
+        );
 
-},150);
+    },150);
 
-return;
+    return;
 
 }
 
