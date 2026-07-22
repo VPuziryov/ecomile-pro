@@ -730,19 +730,23 @@ hr {
 }
 @media (max-width:640px){
 
-    .page-product .hero-content{
-        max-width:100%;
-        width:100%;
-    }
+  .page-product .wrapper{
+    padding-left:12px;
+    padding-right:12px;
+  }
 
-    .hero-inner{
-        width:100%;
-    }
+  .page-product .hero-surface{
+    padding:0;
+  }
 
-    .cta{
-        display:block;
-        width:100%;
-        text-align:center;
-    }
+  .page-product .hero-inner.content-box{
+    width:100%;
+    padding:28px 20px;
+  }
+
+  .page-product .hero-content{
+    width:100%;
+    max-width:none;
+  }
 
 }
