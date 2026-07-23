@@ -750,12 +750,11 @@ hr {
   }
 
 }
-.pricing-single {
-  max-width: 760px;
-  margin: 0;
+.pricing-accent {
+  color: inherit;
 }
-
-.pricing-main-price,
-.pricing-next-price {
-  color: #87aaff;
+.pricing-budget-note {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #ffffff;
 }
