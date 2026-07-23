@@ -750,31 +750,27 @@ hr {
   }
 
 }
-:root{
-    ...
-    --hero-blue:#9db8ff;
-}
 
-.hero-slogan{
-    color:var(--hero-blue);
-}
+
+
 
 .pricing-accent{
-    color:var(--hero-blue);
+    color:#9db8ff;
 }
-.pricing-price{
+
+.product .pricing-price{
 
     font-size:44px;
     font-weight:700;
     line-height:1;
-    color:var(--hero-blue);
+    color:var(--text);
 
     margin:18px 0 12px;
 
 }
 
-.pricing-budget-note {
-  margin-top: 10px;
+.product .pricing-budget-note {
+  margin-top: 14px;
   font-weight: 600;
   color: #ffffff;
 }
