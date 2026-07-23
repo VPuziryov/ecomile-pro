@@ -750,3 +750,12 @@ hr {
   }
 
 }
+.pricing-single {
+  max-width: 760px;
+  margin: 0;
+}
+
+.pricing-main-price,
+.pricing-next-price {
+  color: #87aaff;
+}
