@@ -11,6 +11,8 @@ const corsHeaders = {
 
 exports.handler = async (event) => {
 
+  throw new Error("TEST EA");
+
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
