@@ -16,16 +16,16 @@ const lang=(navigator.language||"").toLowerCase();
 const ru=["ru","uk","be","kk","uz","az","hy","ka"];
 
 if(ru.some(code=>lang.startsWith(code))){
-location.replace("/ru/diveads/");
+location.replace("/ru/dive-ads/");
 return;
 }
 
 if(lang.startsWith("vi")){
-location.replace("/vn/diveads/");
+location.replace("/vn/dive-ads/");
 return;
 }
 
-location.replace("/en/diveads/");
+location.replace("/en/dive-ads/");
 
 })();
 
