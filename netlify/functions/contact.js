@@ -53,10 +53,7 @@ exports.handler = async (event) => {
 
     const sheetsConfig = JSON.parse(process.env.SHEETS_CONFIG);
 
-    const spreadsheetId =
-  project === "ea"
-    ? "1XYeKNn1-H45vfut3bMdqapZQ5vIRlzVjVwJx7OAUx00"
-    : sheetsConfig[project];
+    const spreadsheetId = sheetsConfig[project];
 
     if (!spreadsheetId) {
       throw new Error(`Unknown project: ${project}`);
@@ -78,9 +75,7 @@ exports.handler = async (event) => {
   auth: client
 });
 
-console.log("PROJECT:", project);
-console.log("SPREADSHEET:", spreadsheetId);
-console.log("SHEET:", SHEET_NAME);
+
 
     const row = [
       new Date().toISOString(),
