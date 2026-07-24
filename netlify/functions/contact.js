@@ -53,7 +53,10 @@ exports.handler = async (event) => {
 
     const sheetsConfig = JSON.parse(process.env.SHEETS_CONFIG);
 
-    const spreadsheetId = sheetsConfig[project];
+    const spreadsheetId =
+  project === "ea"
+    ? "1XYeKNn1-H45vfut3bMdqapZQ5v1RIzVjVwJx7OAUx00"
+    : sheetsConfig[project];
 
     if (!spreadsheetId) {
       throw new Error(`Unknown project: ${project}`);
