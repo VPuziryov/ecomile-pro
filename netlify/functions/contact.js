@@ -11,8 +11,6 @@ const corsHeaders = {
 
 exports.handler = async (event) => {
 
-  throw new Error("TEST EA");
-
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
@@ -76,9 +74,13 @@ exports.handler = async (event) => {
     const client = await auth.getClient();
 
     const sheets = google.sheets({
-      version: "v4",
-      auth: client
-    });
+  version: "v4",
+  auth: client
+});
+
+console.log("PROJECT:", project);
+console.log("SPREADSHEET:", spreadsheetId);
+console.log("SHEET:", SHEET_NAME);
 
     const row = [
       new Date().toISOString(),
