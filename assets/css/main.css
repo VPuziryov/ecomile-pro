@@ -774,3 +774,17 @@ hr {
   font-weight: 600;
   color: #ffffff;
 }
+.product-region{
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px solid var(--border);
+}
+
+.product-region h4{
+    margin:0 0 8px;
+    color:var(--text);
+}
+
+.product-region p{
+    margin:0 0 10px;
+}
