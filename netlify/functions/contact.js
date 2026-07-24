@@ -99,6 +99,7 @@ exports.handler = async (event) => {
     const projects = {
   da: "🌊 DiveAds",
   ea: "🚀 EasyAds",
+  eaa: "🌴 EasyAdsAsia",
   io: "🤿 iScuba"
 };
 
