@@ -55,7 +55,7 @@ exports.handler = async (event) => {
 
     const spreadsheetId =
   project === "ea"
-    ? "1XYeKNn1-H45vfut3bMdqapZQ5v1RIzVjVwJx7OAUx00"
+    ? "1XYeKNn1-H45vfut3bMdqapZQ5vIRlzVjVwJx7OAUx00"
     : sheetsConfig[project];
 
     if (!spreadsheetId) {
