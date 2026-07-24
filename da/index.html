@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DiveAds</title>
+
+<script>
+
+(function(){
+
+const lang=(navigator.language||"").toLowerCase();
+
+const ru=["ru","uk","be","kk","uz","az","hy","ka"];
+
+if(ru.some(code=>lang.startsWith(code))){
+location.replace("/ru/diveads/");
+return;
+}
+
+if(lang.startsWith("vi")){
+location.replace("/vn/diveads/");
+return;
+}
+
+location.replace("/en/diveads/");
+
+})();
+
+</script>
+
+</head>
+
+<body></body>
+
+</html>

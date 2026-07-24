@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EasyAds Asia</title>
+
+<script>
+
+(function(){
+
+const lang=(navigator.language||"").toLowerCase();
+
+const ru=["ru","uk","be","kk","uz","az","hy","ka"];
+
+if(ru.some(code=>lang.startsWith(code))){
+location.replace("/ru/easy-ads-asia/");
+return;
+}
+
+if(lang.startsWith("vi")){
+location.replace("/vn/easy-ads-asia/");
+return;
+}
+
+location.replace("/en/easy-ads-asia/");
+
+})();
+
+</script>
+
+</head>
+
+<body></body>
+
+</html>
