@@ -1,35 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>EasyAds Asia</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script>
-    (function () {
-      const lang = (navigator.language || '').toLowerCase();
+<title>EasyAds</title>
 
-      const ruLangs = ['ru', 'uk', 'be', 'kk', 'uz', 'az', 'hy', 'ka'];
-      const isRussianLanguage = ruLangs.some(code => lang.startsWith(code));
+<script>
 
-      if (isRussianLanguage) {
-        window.location.replace('/ru/easy-ads-asia/');
-        return;
-      }
+(function () {
 
-      window.location.replace('/en/easy-ads-asia/');
-    })();
-  </script>
+const lang=(navigator.language||"").toLowerCase();
+
+const ruLangs=[
+"ru",
+"uk",
+"be",
+"kk",
+"uz",
+"az",
+"hy",
+"ka"
+];
+
+const isRussianLanguage=ruLangs.some(
+code=>lang.startsWith(code)
+);
+
+if(isRussianLanguage){
+
+window.location.replace("/ru/easy-ads/");
+return;
+
+}
+
+if(lang.startsWith("vi")){
+
+window.location.replace("/vn/easy-ads/");
+return;
+
+}
+
+window.location.replace("/en/easy-ads/");
+
+})();
+
+</script>
+
 </head>
 
 <body>
-  <noscript>
-    <p>
-      Choose language:
-      <a href="/ru/easy-ads-asia/">Русский</a> |
-      <a href="/en/easy-ads-asia/">English</a>
-    </p>
-  </noscript>
+
+<noscript>
+
+<p>
+
+Choose language:
+
+<a href="/ru/easy-ads/">
+Русский
+</a>
+
+|
+
+<a href="/en/easy-ads/">
+English
+</a>
+
+|
+
+<a href="/vn/easy-ads/">
+Tiếng Việt
+</a>
+
+</p>
+
+</noscript>
+
 </body>
+
 </html>
