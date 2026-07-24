@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DiveAds — Liên hệ</title>
+
+<meta name="description" content="Liên hệ với DiveAds qua Telegram, Messenger hoặc biểu mẫu liên hệ.">
+
+<link rel="stylesheet" href="/assets/css/main.css?v=20260720">
+
+<script src="/assets/js/pixel.js" defer></script>
+
+</head>
+
+<body class="page-product" data-page="diveads-contact">
+
+<div class="wrapper">
+
+<header>
+
+<div class="surface hero-surface">
+
+<div class="hero-content">
+
+<div class="small-title">
+
+DiveAds
+
+</div>
+
+<h1>
+
+Hãy cùng trao đổi về dự án của bạn
+
+</h1>
+
+<p class="brandos-lead">
+
+Chọn cách liên hệ thuận tiện nhất.
+
+</p>
+
+<p class="muted">
+
+Nếu bạn muốn bắt đầu cuộc trò chuyện ngay,
+hãy sử dụng Telegram hoặc Messenger.
+
+Nếu chưa thuận tiện,
+bạn có thể điền vào biểu mẫu liên hệ bên dưới.
+
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- CONTACT CHANNELS -->
+
+<section>
+
+<div class="products-grid">
+
+<div class="product">
+
+<h3>
+
+Telegram
+
+<span class="contact-badge">
+
+★ Khuyến nghị
+
+</span>
+
+</h3>
+
+<p>
+
+Cách nhanh nhất
+để trao đổi về dự án của bạn.
+
+</p>
+
+<a
+class="cta"
+href="#telegram">
+
+Mở Telegram
+
+</a>
+
+</div>
+
+<div class="product">
+
+<h3>
+
+Messenger
+
+</h3>
+
+<p>
+
+Nếu cuộc trò chuyện
+không bắt đầu tự động,
+chỉ cần gửi từ khóa
+
+<strong>"DIVE"</strong>.
+
+</p>
+
+<a
+class="cta"
+href="#messenger">
+
+Mở Messenger
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT FORM -->
+
+<section class="surface">
+
+<div class="content-box">
+
+<h2>
+
+Hoặc gửi cho chúng tôi một tin nhắn
+
+</h2>
+
+<p class="muted">
+
+Nếu hiện tại bạn chưa tiện nhắn tin,
+hãy điền vào biểu mẫu ngắn dưới đây.
+
+Thông thường chúng tôi sẽ phản hồi
+trong vòng một ngày làm việc.
+
+</p>
+
+<form
+id="contactForm"
+class="contact-form">
+
+<input
+type="text"
+id="name"
+placeholder="Tên của bạn"
+required>
+
+<input
+type="text"
+id="contact"
+placeholder="Email, Telegram hoặc WhatsApp"
+required>
+
+<input
+type="text"
+id="company"
+placeholder="Tên trung tâm lặn">
+
+<input
+type="text"
+id="website"
+placeholder="Website hoặc trang Facebook">
+
+<textarea
+id="message"
+placeholder="Hãy giới thiệu ngắn gọn về dự án của bạn"></textarea>
+
+<button
+class="cta"
+type="submit">
+
+Gửi yêu cầu
+
+</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+</section>
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<div class="footer-left">
+
+<div class="footer-copy">
+
+© 2026
+
+<a href="/"
+class="footer-brand-link">
+
+ECOMILE
+
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-right">
+
+<div>
+
+DiveAds
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+<script>
+
+const CONFIG={
+
+PROJECT:"da",
+
+TELEGRAM_URL:"#",
+
+MESSENGER_URL:"#",
+
+KEYWORD:"DIVE"
+
+};
+
+const telegramLink=document.querySelector('a[href="#telegram"]');
+const messengerLink=document.querySelector('a[href="#messenger"]');
+
+if(CONFIG.TELEGRAM_URL !== "#"){
+telegramLink.href=CONFIG.TELEGRAM_URL;
+}
+
+if(CONFIG.MESSENGER_URL !== "#"){
+messengerLink.href=CONFIG.MESSENGER_URL;
+}
+
+const form=document.getElementById("contactForm");
+
+form.addEventListener("submit",async function(e){
+
+e.preventDefault();
+
+const data={
+
+project:CONFIG.PROJECT,
+
+name:document.getElementById("name").value.trim(),
+
+contact:document.getElementById("contact").value.trim(),
+
+company:document.getElementById("company").value.trim(),
+
+website:document.getElementById("website").value.trim(),
+
+message:document.getElementById("message").value.trim()
+
+};
+
+try{
+
+const response=await fetch("/.netlify/functions/contact",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify(data)
+
+});
+
+const result=await response.json();
+
+if(!result.success){
+
+throw new Error(result.error || "Server error");
+
+}
+
+if(typeof trackLead === "function"){
+trackLead();
+}
+
+document.getElementById("result").innerHTML=`
+
+<div class="contact-success">
+
+<h3>✅ Cảm ơn bạn!</h3>
+
+<p>
+
+Yêu cầu của bạn đã được gửi thành công.
+
+</p>
+
+<p>
+
+Thông thường chúng tôi sẽ phản hồi
+trong vòng một ngày làm việc.
+
+</p>
+
+</div>
+
+`;
+
+form.reset();
+
+}
+catch(error){
+
+document.getElementById("result").innerHTML=`
+
+<div class="contact-error">
+
+Đã xảy ra lỗi.<br>
+
+Vui lòng thử lại sau
+hoặc liên hệ với chúng tôi qua Telegram.
+
+</div>
+
+`;
+
+console.error(error);
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
