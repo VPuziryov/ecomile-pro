@@ -245,10 +245,31 @@ MESSENGER_URL:"https://m.me/puziryov?ref=contact-eaa-en",
 KEYWORD:"ASIA"
 
 };
+function trackEAAContact(channel){
 
-document.querySelector('a[href="#telegram"]').href=CONFIG.TELEGRAM_URL;
+  if(typeof fbq === "function"){
 
-document.querySelector('a[href="#messenger"]').href=CONFIG.MESSENGER_URL;
+    fbq("trackCustom","EAA_Contact",{
+      channel:channel
+    });
+
+  }
+
+}
+
+const telegramLink=document.querySelector('a[href="#telegram"]');
+const messengerLink=document.querySelector('a[href="#messenger"]');
+
+telegramLink.href=CONFIG.TELEGRAM_URL;
+messengerLink.href=CONFIG.MESSENGER_URL;
+
+telegramLink.addEventListener("click",function(){
+  trackEAAContact("telegram");
+});
+
+messengerLink.addEventListener("click",function(){
+  trackEAAContact("messenger");
+});
 
 const form=document.getElementById("contactForm");
 
@@ -295,6 +316,7 @@ throw new Error(result.error || "Server error");
 }
 
 trackLead();
+trackEAAContact("form");
 
 document.getElementById("result").innerHTML=`
 
