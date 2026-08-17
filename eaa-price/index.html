@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EasyAds Asia Pricing</title>
+
+<script>
+
+(function () {
+
+const lang=(navigator.language||"").toLowerCase();
+
+const ruLangs=[
+"ru",
+"uk",
+"be",
+"kk",
+"uz",
+"az",
+"hy",
+"ka"
+];
+
+const isRussianLanguage=ruLangs.some(
+code=>lang.startsWith(code)
+);
+
+if(isRussianLanguage){
+
+window.location.replace("/ru/pricing/eaa/");
+return;
+
+}
+
+if(lang.startsWith("vi")){
+
+window.location.replace("/vn/pricing/eaa/");
+return;
+
+}
+
+window.location.replace("/en/pricing/eaa/");
+
+})();
+
+</script>
+
+</head>
+
+<body>
+
+<noscript>
+
+<p>
+Choose language:
+
+<a href="/ru/pricing/eaa/">Русский</a>
+|
+<a href="/en/pricing/eaa/">English</a>
+|
+<a href="/vn/pricing/eaa/">Tiếng Việt</a>
+
+</p>
+
+</noscript>
+
+</body>
+
+</html>
