@@ -2,6 +2,18 @@
 /eaa   /ru/easy-ads-asia/   302!   Language=ru,uk,be,kk,uz,az,hy,ka
 /eaa   /en/easy-ads-asia/   302!
 
+/ea   /vn/easy-ads/   302!   Language=vi
+/ea   /ru/easy-ads/   302!   Language=ru,uk,be,kk,uz,az,hy,ka
+/ea   /en/easy-ads/   302!
+
+/da   /vn/dive-ads/   302!   Language=vi
+/da   /ru/dive-ads/   302!   Language=ru,uk,be,kk,uz,az,hy,ka
+/da   /en/dive-ads/   302!
+
+/eaa-price   /vn/pricing/eaa/   302!   Language=vi
+/eaa-price   /ru/pricing/eaa/   302!   Language=ru,uk,be,kk,uz,az,hy,ka
+/eaa-price   /en/pricing/eaa/   302!
+
 
 /support https://buy.stripe.com/aFafZgfOAa5p9Ke2tV6Na0c 302
 
