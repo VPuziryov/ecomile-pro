@@ -788,3 +788,192 @@ hr {
 .product-region p{
     margin:0 0 10px;
 }
+/* ======================================================
+   CASES
+====================================================== */
+
+.cases-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
+    margin-top:32px;
+}
+
+.case-card{
+    display:flex;
+    flex-direction:column;
+
+    padding:26px;
+
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+
+    min-width:0;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.case-card:hover{
+    transform:translateY(-2px);
+    border-color:rgba(91,124,255,.35);
+    box-shadow:0 12px 30px rgba(0,0,0,.30);
+}
+
+.case-label{
+    margin-bottom:14px;
+
+    color:var(--accent);
+
+    font-size:11px;
+    font-weight:600;
+
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+.case-card h3{
+    margin:0 0 5px;
+
+    color:var(--text);
+
+    font-size:20px;
+    font-weight:500;
+}
+
+.case-location{
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+
+/* MAIN RESULT */
+
+.case-result{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+
+    margin:30px 0 24px;
+}
+
+.case-result strong{
+    color:var(--text);
+
+    font-size:52px;
+    font-weight:700;
+
+    line-height:.9;
+    letter-spacing:-.04em;
+}
+
+.case-result span{
+    color:var(--muted);
+
+    font-size:16px;
+}
+
+
+/* SECONDARY NUMBERS */
+
+.case-stats{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+
+    margin-top:auto;
+}
+
+.case-stats > div{
+    padding-top:14px;
+    border-top:1px solid var(--line);
+}
+
+.case-stats span{
+    display:block;
+
+    margin-bottom:4px;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+.case-stats strong{
+    display:block;
+
+    color:var(--text);
+
+    font-size:17px;
+    font-weight:600;
+}
+
+
+/* META */
+
+.case-meta{
+    margin-top:20px;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+
+/* FEATURED */
+
+.case-card-featured{
+    border-color:rgba(91,124,255,.42);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(91,124,255,.08) 0%,
+            rgba(18,21,32,1) 38%
+        );
+}
+
+.case-card-featured .case-result strong{
+    color:#9db8ff;
+}
+
+
+/* TABLET */
+
+@media (max-width:900px){
+
+    .cases-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width:640px){
+
+    .cases-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .case-card{
+        padding:22px;
+    }
+
+    .case-result{
+        margin:26px 0 22px;
+    }
+
+    .case-result strong{
+        font-size:46px;
+    }
+
+}

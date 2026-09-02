@@ -43,6 +43,12 @@ const events={
 view:"ViewContent_Ecomile_Home_7s"
 },
 
+// Cases
+
+"cases":{
+    view:"ViewContent_Cases_7s"
+},
+
 // EasyAds
 
 "easyads":{
