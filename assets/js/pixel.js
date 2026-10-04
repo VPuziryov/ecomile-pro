@@ -25,6 +25,19 @@ s.parentNode.insertBefore(t,s);
 fbq('init','1403441134581587');
 fbq('track','PageView');
 
+window.pushTrackingEvent=function(eventName){
+
+if(!eventName) return;
+
+try{
+window.dataLayer=window.dataLayer || [];
+window.dataLayer.push({event:eventName});
+}catch(error){}
+
+};
+
+window.pushTrackingEvent('PageView');
+
 
 
 // ======================================================
@@ -117,6 +130,8 @@ fbq(
 events[page].view
 );
 
+window.pushTrackingEvent(events[page].view);
+
 },7000);
 
 }
@@ -155,6 +170,8 @@ if(
         events[page].telegram
     );
 
+window.pushTrackingEvent(events[page].telegram);
+
     setTimeout(function(){
 
         window.open(
@@ -184,6 +201,8 @@ fbq(
 'trackCustom',
 events[page].messenger
 );
+
+window.pushTrackingEvent(events[page].messenger);
 
 setTimeout(function(){
 
@@ -220,5 +239,7 @@ fbq(
 'trackCustom',
 events[page].lead
 );
+
+window.pushTrackingEvent(events[page].lead);
 
 };
