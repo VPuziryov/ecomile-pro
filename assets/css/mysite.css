@@ -10,3 +10,12 @@
 #ms-social>a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:14px 30px;border:1px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;font-weight:650;line-height:1.4}
 #ms-social>a:hover{background:#343a40}
 @media(max-width:600px){#ms-social.ms-social-block:not([hidden]){gap:18px;padding:32px 0}.ms-social-block>div{flex-basis:100%}#ms-social>a{flex:1 1 100%;min-width:0}}
+
+/* Keep category words intact and group the ownership heading by meaning on phones. */
+@media(max-width:600px){
+ .ms-categories li{padding:18px 12px}
+ .ms-categories h3{font-size:clamp(16px,4.4vw,21px);overflow-wrap:normal;word-break:normal;hyphens:none}
+ #control{font-size:clamp(32px,9vw,52px)}
+ #control>span{display:block;white-space:nowrap}
+ html:lang(vi) #control{font-size:clamp(21px,6vw,32px)}
+}
