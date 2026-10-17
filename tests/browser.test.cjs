@@ -20,6 +20,15 @@ for(const lang of ['en','ru','vn']) for(const width of [320,390,768,1440]) {
  await page.waitForFunction(()=>[...document.images].every(i=>i.complete&&i.naturalWidth>0));
  assert.equal(await page.locator('img').evaluateAll(images=>images.every(i=>i.complete&&i.naturalWidth>0)),true);
  assert.equal(await page.locator('#ms-social').isVisible(),true);
+ assert.equal(await page.locator('#ms-social a').count(),1);
+ const facebook=page.locator('#ms-social a');
+ assert.equal(await facebook.getAttribute('href'),'https://www.facebook.com/mysite.portfolio');
+ assert.equal(await facebook.getAttribute('target'),'_blank');
+ assert.match(await facebook.getAttribute('rel'),/noopener/);
+ assert.equal(await page.locator('#ms-social').evaluate(el=>!document.querySelector('footer').contains(el)&&!!(el.compareDocumentPosition(document.querySelector('footer'))&Node.DOCUMENT_POSITION_FOLLOWING)),true);
+ await facebook.focus();assert.equal(await facebook.evaluate(el=>el===document.activeElement),true);
+ const box=await facebook.boundingBox();assert.ok(box.height>=44);
+ assert.equal(await page.locator('a[href*="instagram.com"]').count(),0);
  assert.equal(await page.locator('h1').count(),1);
  if(width===320){
    const name=page.locator('input[name=name]'),email=page.locator('input[name=email]'),messenger=page.locator('input[name=messenger]'),submit=page.locator('button[type=submit]');
@@ -41,6 +50,9 @@ for(const lang of ['en','ru','vn']) for(const width of [320,390,768,1440]) {
  if(lang==='ru' && [390,1440].includes(width)){if(await page.locator('[data-consent=reject]').isVisible()) await page.locator('[data-consent=reject]').click();await page.screenshot({path:`/tmp/mysite-ru-${width}.png`,fullPage:true});}
 }
 console.log('PASS: 12 language/viewport combinations, no overflow, all images load');
+await page.route('**/assets/js/mysite-config.js',route=>route.fulfill({contentType:'application/javascript',body:'window.MY_SITE_CONFIG={facebook:"",instagram:""};'}),{times:1});
+await page.goto('https://ecomile.pro/en/mysite/');assert.equal(await page.locator('#ms-social').isVisible(),false);
+console.log('PASS: social block before footer, Facebook keyboard access and touch size; empty Instagram hidden; empty config hides block');
 calls=0;await page.goto('https://ecomile.pro/en/mysite/');assert.equal(tracking.length,0);
 await page.locator('#ms-cookie-settings').click();await page.locator('[data-consent=accept]').click();await page.waitForFunction(()=>typeof window.trackMySiteEvent==='function');
 await page.locator('input[name=name]').fill('QA');await page.locator('input[name=email]').fill('qa@example.test');
