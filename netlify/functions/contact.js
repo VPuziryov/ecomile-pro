@@ -1,5 +1,7 @@
 const { google } = require("googleapis");
 
+const mySiteContact = require("../../assets/js/mysite-contact.js");
+
 const SHEET_NAME = "Leads";
 
 const corsHeaders = {
@@ -46,7 +48,7 @@ exports.handler = async (event) => {
 
     isMySite = project === "mysite";
     if (isMySite) {
-      const limits = {name:120, contact:200, company:200, website:2048, message:3000};
+      const limits = {name:120, contact:500, email:254, messenger:200, company:200, website:2048, message:3000};
       for (const [field, limit] of Object.entries(limits)) {
         if (body[field] != null && (typeof body[field] !== "string" || body[field].length > limit)) {
           return {statusCode:400, headers:corsHeaders, body:JSON.stringify({success:false, error:"Invalid enquiry"})};
@@ -54,7 +56,14 @@ exports.handler = async (event) => {
       }
       name = (name || "").trim(); contact = (contact || "").trim();
       company = (company || "").trim(); website = (website || "").trim(); message = (message || "").trim();
-      if (!name || !contact) return {statusCode:400, headers:corsHeaders, body:JSON.stringify({success:false, error:"Name and contact are required"})};
+      // Cached older forms still send one contact field; apply the same format rules.
+      const separateFields = Object.prototype.hasOwnProperty.call(body, 'email') || Object.prototype.hasOwnProperty.call(body, 'messenger');
+      const email = separateFields ? (body.email || '').trim() : (contact.includes('@') && !contact.startsWith('@') && !contact.includes('/') ? contact : '');
+      const messenger = separateFields ? (body.messenger || '').trim() : (email ? '' : contact);
+      const contactError = mySiteContact.validate(email, messenger);
+      if (contactError) return {statusCode:400, headers:corsHeaders, body:JSON.stringify({success:false, code:contactError, error:'Invalid contact'})};
+      contact = mySiteContact.combine(email, messenger);
+      if (!name) return {statusCode:400, headers:corsHeaders, body:JSON.stringify({success:false, error:'Name is required'})};
     }
 
     if (!project) {

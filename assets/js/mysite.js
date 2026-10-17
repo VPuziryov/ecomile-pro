@@ -60,25 +60,35 @@
   if (!valid(choice)) consent.hidden = false;
   document.querySelectorAll('[data-demo]').forEach(link => link.addEventListener('click', () => track('demo')));
   form.addEventListener('input', event => {
+    for (const name of ['email', 'messenger']) form.elements.namedItem(name).setCustomValidity('');
     event.target.setCustomValidity?.('');
     if (!formStarted && choice === 'accept' && typeof window.trackMySiteEvent === 'function') { track('formStart'); formStarted = true; }
   });
   form.addEventListener('submit', async event => {
     event.preventDefault(); if (busy) return;
-    for (const name of ['name', 'contact']) {
-      const input = form.elements.namedItem(name); input.value = input.value.trim(); input.setCustomValidity(input.value ? '' : copy.invalid);
+    const nameInput = form.elements.namedItem('name');
+    const emailInput = form.elements.namedItem('email'), messengerInput = form.elements.namedItem('messenger');
+    nameInput.value = nameInput.value.trim(); nameInput.setCustomValidity(nameInput.value ? '' : copy.invalid);
+    emailInput.value = emailInput.value.trim(); messengerInput.value = messengerInput.value.trim();
+    emailInput.setCustomValidity(''); messengerInput.setCustomValidity('');
+    const contactError = window.MySiteContact.validate(emailInput.value, messengerInput.value);
+    if (contactError) {
+      const input = contactError === 'messenger' ? messengerInput : emailInput;
+      input.setCustomValidity(copy.contactErrors[contactError]);
+      status.textContent = copy.contactErrors[contactError];
     }
     if (!form.reportValidity()) return;
     const button = form.querySelector('button[type=submit]'), label = button.textContent;
     busy = true; button.disabled = true; button.textContent = copy.busy; settings.disabled = true;
     consent.querySelectorAll('button').forEach(item => { item.disabled = true; }); status.textContent = '';
     const values = new FormData(form);
-    const body = {project:'mysite', name:values.get('name').trim(), contact:values.get('contact').trim(), company:String(values.get('who')||'').trim(), website:'', message:String(values.get('what')||'').trim()};
+    const body = {project:'mysite', name:values.get('name').trim(), email:emailInput.value, messenger:messengerInput.value, contact:window.MySiteContact.combine(emailInput.value, messengerInput.value), company:String(values.get('who')||'').trim(), website:'', message:String(values.get('what')||'').trim()};
     const controller = new AbortController(), timeout = setTimeout(() => controller.abort(), 30000);
     try {
       const response = await fetch('/.netlify/functions/contact', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body), signal:controller.signal});
-      if (!response.ok) throw new Error('Request failed');
-      const data = await response.json(); if (data.success !== true) throw new Error('Request rejected');
+      const data = await response.json();
+      if (response.status === 400 && copy.contactErrors[data.code]) { status.textContent = copy.contactErrors[data.code]; return; }
+      if (!response.ok) throw new Error('Request failed'); if (data.success !== true) throw new Error('Request rejected');
       status.textContent = copy.success; form.reset(); track('lead');
     } catch (_) { status.textContent = copy.failure; }
     finally {
