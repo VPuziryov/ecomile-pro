@@ -30,11 +30,12 @@ exports.handler = async (event) => {
     };
   }
 
+  let isMySite = false;
   try {
 
     const body = JSON.parse(event.body || "{}");
 
-    const {
+    let {
       project,
       name,
       contact,
@@ -42,6 +43,19 @@ exports.handler = async (event) => {
       website,
       message
     } = body;
+
+    isMySite = project === "mysite";
+    if (isMySite) {
+      const limits = {name:120, contact:200, company:200, website:2048, message:3000};
+      for (const [field, limit] of Object.entries(limits)) {
+        if (body[field] != null && (typeof body[field] !== "string" || body[field].length > limit)) {
+          return {statusCode:400, headers:corsHeaders, body:JSON.stringify({success:false, error:"Invalid enquiry"})};
+        }
+      }
+      name = (name || "").trim(); contact = (contact || "").trim();
+      company = (company || "").trim(); website = (website || "").trim(); message = (message || "").trim();
+      if (!name || !contact) return {statusCode:400, headers:corsHeaders, body:JSON.stringify({success:false, error:"Name and contact are required"})};
+    }
 
     if (!project) {
       throw new Error("Project is required");
@@ -89,7 +103,7 @@ exports.handler = async (event) => {
     await sheets.spreadsheets.values.append({
       spreadsheetId,
       range: `${SHEET_NAME}!A:F`,
-      valueInputOption: "USER_ENTERED",
+      valueInputOption: isMySite ? "RAW" : "USER_ENTERED",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [row]
@@ -97,6 +111,7 @@ exports.handler = async (event) => {
     });
 
     const projects = {
+  mysite: "MY SITE",
   da: "🌊 DiveAds",
   ea: "🚀 EasyAds",
   eaa: "🌴 EasyAdsAsia",
@@ -158,7 +173,7 @@ try {
       headers: corsHeaders,
       body: JSON.stringify({
         success: false,
-        error: err.message
+        error: isMySite ? "Unable to save enquiry. Please try again later." : err.message
       })
     };
 

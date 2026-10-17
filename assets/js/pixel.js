@@ -1,3 +1,6 @@
+(() => {
+function trackingAllowed(){return document.body.dataset.page !== "mysite-home" || (typeof window.ecomileTrackingAllowed === "function" && window.ecomileTrackingAllowed());}
+if(!trackingAllowed()) return;
 // ======================================================
 // ECOMILE Pixel v2
 // ======================================================
@@ -27,7 +30,7 @@ fbq('track','PageView');
 
 window.pushTrackingEvent=function(eventName){
 
-if(!eventName) return;
+if(!eventName || !trackingAllowed()) return;
 
 try{
 window.dataLayer=window.dataLayer || [];
@@ -49,6 +52,12 @@ const body=document.body;
 const page=body.dataset.page || "";
 
 const events={
+"mysite-home":{
+view:"ViewContent_MySite_Home_7s",
+demo:"Click_Demo_MySite",
+formStart:"Start_Form_MySite",
+lead:"Lead_Form_MySite"
+},
 
     // ECOMILE
 
@@ -125,6 +134,7 @@ if(events[page]){
 
 setTimeout(function(){
 
+if(!trackingAllowed()) return;
 fbq(
 'trackCustom',
 events[page].view
@@ -230,6 +240,7 @@ return;
 // ======================================================
 
 window.trackLead=function(){
+if(!trackingAllowed()) return;
 
 if(!events[page]) return;
 
@@ -243,3 +254,13 @@ events[page].lead
 window.pushTrackingEvent(events[page].lead);
 
 };
+
+window.trackMySiteEvent=function(type){
+if(page !== "mysite-home" || !trackingAllowed()) return;
+const name=events[page]?.[type];
+if(!name || !["demo","formStart","lead"].includes(type)) return;
+fbq("trackCustom",name);
+window.pushTrackingEvent(name);
+};
+
+})();

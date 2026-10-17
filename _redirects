@@ -57,3 +57,12 @@
 /vn/dive-ads-mini     /diveads/    302!
 /vn/dive-ads-mini/    /diveads/    302!
 
+
+
+# MY SITE
+/mysite    /vn/mysite/   302!   Language=vi
+/mysite    /ru/mysite/   302!   Language=ru,uk,be,kk,uz,az,hy,ka
+/mysite    /en/mysite/   302!
+/mysite/   /vn/mysite/   302!   Language=vi
+/mysite/   /ru/mysite/   302!   Language=ru,uk,be,kk,uz,az,hy,ka
+/mysite/   /en/mysite/   302!
