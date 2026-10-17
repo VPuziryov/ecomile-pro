@@ -35,3 +35,6 @@ body.page-mysite{font-size:18px}
 .ms-contact form small,.ms-privacy-link,.ms-form-status,.ms-footer,.ms-consent p,.ms-price span,.ms-pricing .ms-price-details{font-size:15px}
 .ms-kicker,.ms-categories span,.ms-steps span{font-size:13px}
 .ms-nav nav{font-size:14px}
+
+/* Keep pricing explanations and footer comfortably readable. */
+.ms-price span,.ms-pricing .ms-price-details,.ms-footer,.ms-contact>div>p>small{font-size:17px}
