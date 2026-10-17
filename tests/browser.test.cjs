@@ -30,6 +30,9 @@ for(const lang of ['en','ru','vn']) for(const width of [320,390,768,1440]) {
  const box=await facebook.boundingBox();assert.ok(box.height>=44);
  assert.equal(await page.locator('a[href*="instagram.com"]').count(),0);
  assert.equal(await page.locator('h1').count(),1);
+ const layout=await page.evaluate(()=>({formBottom:document.querySelector('#ms-form').getBoundingClientRect().bottom,contactBottom:document.querySelector('.ms-contact').getBoundingClientRect().bottom,socialTop:document.querySelector('#ms-social h2').getBoundingClientRect().top}));
+ assert.ok(layout.formBottom<=layout.contactBottom+1,'Form overflows contact section: '+lang+'/'+width);
+ assert.ok(layout.socialTop>=layout.formBottom+30,'Social heading overlaps form: '+lang+'/'+width);
  if(width===320){
    const name=page.locator('input[name=name]'),email=page.locator('input[name=email]'),messenger=page.locator('input[name=messenger]'),submit=page.locator('button[type=submit]');
    await name.fill('QA');
