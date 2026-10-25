@@ -5,7 +5,8 @@
   if (
     path.startsWith('/ru/') ||
     path.startsWith('/en/') ||
-    path.startsWith('/vn/')
+    path.startsWith('/vn/') ||
+    path.startsWith('/lv/')
   ) {
     return;
   }
@@ -21,6 +22,11 @@
 
   if (isCIS) {
     window.location.replace('/ru/');
+    return;
+  }
+
+  if (lang.startsWith('lv')) {
+    window.location.replace('/lv/');
     return;
   }
 
