@@ -169,8 +169,8 @@ if(!events[page])return;
 // Telegram
 
 if(
-    href.includes("t.me") ||
-    href.includes("telegram.me")
+    events[page].telegram &&
+    (href.includes("t.me") || href.includes("telegram.me"))
 ){
 
     e.preventDefault();
@@ -201,8 +201,8 @@ window.pushTrackingEvent(events[page].telegram);
 // Messenger
 
 if(
-href.includes("m.me") ||
-href.includes("messenger.com")
+events[page].messenger &&
+(href.includes("m.me") || href.includes("messenger.com"))
 ){
 
 e.preventDefault();
