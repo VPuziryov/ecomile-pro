@@ -141,35 +141,54 @@ const telegramText =
 💬
 ${message || "-"}`;
 
-try {
+let telegramDelivered = false;
+let telegramError = null;
+const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
+const telegramChatId = process.env.TELEGRAM_CHAT_ID;
 
-  const tg = await fetch(
-    `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        chat_id: process.env.TELEGRAM_CHAT_ID,
-        text: telegramText
-      })
+if (!telegramToken || !telegramChatId) {
+  telegramError = "Telegram configuration missing";
+  console.error("[contact] Telegram configuration missing", { project });
+} else {
+  for (let attempt = 1; attempt <= 3 && !telegramDelivered; attempt++) {
+    try {
+      const tg = await fetch(
+        `https://api.telegram.org/bot${telegramToken}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: telegramChatId,
+            text: telegramText.slice(0, 4000)
+          })
+        }
+      );
+      const payload = await tg.json();
+      if (tg.ok && payload.ok === true) {
+        telegramDelivered = true;
+      } else {
+        telegramError = `HTTP ${tg.status}: ${payload.description || "Telegram rejected message"}`;
+        console.error("[contact] Telegram rejected notification", { project, attempt, error: telegramError });
+        // Bad request / invalid chat / blocked bot will not improve with retries.
+        if (tg.status !== 429 && tg.status < 500) break;
+        const retrySeconds = Number(payload.parameters?.retry_after || 0);
+        if (retrySeconds > 0 && retrySeconds <= 3) {
+          await new Promise(resolve => setTimeout(resolve, retrySeconds * 1000));
+        }
+      }
+    } catch (err) {
+      telegramError = err.message || String(err);
+      console.error("[contact] Telegram request failed", { project, attempt, error: telegramError });
     }
-  );
-
-  if (!tg.ok) {
-    console.error("Telegram API error:", await tg.text());
   }
-
-} catch (err) {
-  console.error("Telegram notification failed:", err);
 }
 
     return {
       statusCode: 200,
       headers: corsHeaders,
       body: JSON.stringify({
-        success: true
+        success: true,
+        telegramDelivered
       })
     };
 
