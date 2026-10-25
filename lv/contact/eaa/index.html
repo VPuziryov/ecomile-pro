@@ -328,6 +328,17 @@ throw new Error(result.error || "Server error");
 trackLead();
 trackEAAContact("form");
 
+if (result.telegramDelivered === false) {
+  document.getElementById("result").innerHTML = `
+  <div class="contact-success">
+    <h3>✅ Pieteikums saglabāts</h3>
+    <p>Jūsu pieteikums ir saglabāts, bet tūlītējo paziņojumu neizdevās piegādāt.</p>
+    <p>Steidzamos jautājumos, lūdzu, sazinieties ar mums Telegram.</p>
+  </div>`;
+  form.reset();
+  return;
+}
+
 document.getElementById("result").innerHTML=`
 
 <div class="contact-success">
