@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TQC9C37V');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EasyAds — saziņa | ECOMILE</title>
+
+<meta name="description"
+content="Sazinieties ar EasyAds par sava uzņēmuma reklāmu. Telegram, Messenger vai īsa saziņas forma.">
+
+<link rel="stylesheet" href="/assets/css/main.css?v=20260723">
+
+<script src="/assets/js/pixel.js" defer></script>
+
+</head>
+
+<body
+class="page-product"
+data-page="easyads-contact">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQC9C37V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="wrapper">
+
+<header>
+
+<div class="surface hero-surface">
+
+<div class="hero-content">
+
+<div class="small-title">
+
+EasyAds
+
+</div>
+
+<h1>
+
+Apspriedīsim jūsu uzņēmumu
+
+</h1>
+
+<p class="brandos-lead">
+
+Izvēlieties sev ērtāko saziņas veidu.
+
+</p>
+
+<p class="muted">
+
+Pastāstiet par savu uzņēmumu
+un pašreizējām reklāmas vajadzībām.
+
+Sazinieties ar mums Telegram vai Messenger
+vai aizpildiet zemāk esošo formu.
+
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- CONTACT CHANNELS -->
+
+<section>
+
+<div class="products-grid">
+
+<div class="product">
+
+<h3>
+
+💬 Telegram
+
+<span class="contact-badge">
+
+★ Iesakām
+
+</span>
+
+</h3>
+
+<p>
+
+Ātrākais veids, kā apspriest
+jūsu uzņēmumu un reklāmas mērķus.
+
+</p>
+
+<a
+class="cta"
+href="#telegram">
+
+Atvērt Telegram
+
+</a>
+
+</div>
+
+<div class="product">
+
+<h3>
+
+💬 Messenger
+
+</h3>
+
+<p>
+
+Ja saruna nesākas automātiski,
+nosūtiet atslēgvārdu "ADS".
+
+</p>
+
+<a
+class="cta"
+href="#messenger">
+
+Atvērt Messenger
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+<!-- CONTACT FORM -->
+
+<section class="surface">
+
+<div class="content-box">
+
+<h2>
+
+Vai nosūtiet mums pieteikumu
+
+</h2>
+
+<p class="muted">
+
+Aizpildiet īso formu.
+
+Izskatīsim jūsu informāciju
+un atbildēsim vienas darba dienas laikā.
+
+</p>
+
+<form
+id="contactForm"
+class="contact-form">
+
+<input
+type="text"
+id="name"
+placeholder="Jūsu vārds"
+required>
+
+<input
+type="text"
+id="contact"
+placeholder="E-pasts, Telegram vai WhatsApp"
+required>
+
+<input
+type="text"
+id="company"
+placeholder="Uzņēmuma nosaukums">
+
+<input
+type="text"
+id="website"
+placeholder="Mājaslapa vai sociālo tīklu profils">
+
+<textarea
+id="message"
+placeholder="Pastāstiet par savu uzņēmumu un reklāmas mērķiem"></textarea>
+
+<button
+class="cta"
+type="submit">
+
+Nosūtīt pieteikumu
+
+</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+</section>
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<div class="footer-left">
+
+<div class="footer-copy">
+
+© 2026
+
+<a href="/lv/"
+class="footer-brand-link">
+
+ECOMILE
+
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-right">
+
+<div>
+
+EasyAds
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+<script>
+
+const CONFIG={
+
+PROJECT:"ea",
+
+TELEGRAM_URL:"https://telegram.me/puziryov_bot?start=w57561364",
+
+MESSENGER_URL:"https://m.me/puziryov?ref=contact-ea-en",
+
+KEYWORD:"ADS"
+
+};
+
+const telegramLink=document.querySelector('a[href="#telegram"]');
+const messengerLink=document.querySelector('a[href="#messenger"]');
+
+if(CONFIG.TELEGRAM_URL !== "#"){
+telegramLink.href=CONFIG.TELEGRAM_URL;
+}
+
+if(CONFIG.MESSENGER_URL !== "#"){
+messengerLink.href=CONFIG.MESSENGER_URL;
+}
+
+const form=document.getElementById("contactForm");
+
+form.addEventListener("submit",async function(e){
+
+e.preventDefault();
+
+const data={
+
+project:CONFIG.PROJECT,
+
+name:document.getElementById("name").value.trim(),
+
+contact:document.getElementById("contact").value.trim(),
+
+company:document.getElementById("company").value.trim(),
+
+website:document.getElementById("website").value.trim(),
+
+message:document.getElementById("message").value.trim()
+
+};
+
+try{
+
+const response=await fetch("/.netlify/functions/contact",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify(data)
+
+});
+
+const result=await response.json();
+
+if(!result.success){
+
+throw new Error(result.error || "Server error");
+
+}
+
+if(typeof trackLead === "function"){
+trackLead();
+}
+
+document.getElementById("result").innerHTML=`
+
+<div class="contact-success">
+
+<h3>✅ Paldies!</h3>
+
+<p>
+Jūsu pieteikums ir veiksmīgi nosūtīts.
+</p>
+
+<p>
+Parasti atbildam vienas darba dienas laikā.
+</p>
+
+</div>
+
+`;
+
+form.reset();
+
+}
+catch(error){
+
+document.getElementById("result").innerHTML=`
+
+<div class="contact-error">
+
+Radās kļūda.<br>
+
+Lūdzu, mēģiniet vēlāk vai sazinieties ar mums Telegram.
+
+</div>
+
+`;
+
+console.error(error);
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
