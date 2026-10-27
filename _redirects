@@ -1,3 +1,53 @@
+# Language-aware pricing and contact entry points
+/pricing/eaa  /vn/pricing/eaa/  302!  Language=vi
+/pricing/eaa  /lv/pricing/eaa/  302!  Language=lv
+/pricing/eaa  /ru/pricing/eaa/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/pricing/eaa  /en/pricing/eaa/  302!
+/pricing/eaa/  /vn/pricing/eaa/  302!  Language=vi
+/pricing/eaa/  /lv/pricing/eaa/  302!  Language=lv
+/pricing/eaa/  /ru/pricing/eaa/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/pricing/eaa/  /en/pricing/eaa/  302!
+/pricing/ea  /vn/pricing/ea/  302!  Language=vi
+/pricing/ea  /lv/pricing/ea/  302!  Language=lv
+/pricing/ea  /ru/pricing/ea/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/pricing/ea  /en/pricing/ea/  302!
+/pricing/ea/  /vn/pricing/ea/  302!  Language=vi
+/pricing/ea/  /lv/pricing/ea/  302!  Language=lv
+/pricing/ea/  /ru/pricing/ea/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/pricing/ea/  /en/pricing/ea/  302!
+/pricing/da  /vn/pricing/da/  302!  Language=vi
+/pricing/da  /lv/pricing/da/  302!  Language=lv
+/pricing/da  /ru/pricing/da/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/pricing/da  /en/pricing/da/  302!
+/pricing/da/  /vn/pricing/da/  302!  Language=vi
+/pricing/da/  /lv/pricing/da/  302!  Language=lv
+/pricing/da/  /ru/pricing/da/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/pricing/da/  /en/pricing/da/  302!
+/contact/eaa  /vn/contact/eaa/  302!  Language=vi
+/contact/eaa  /lv/contact/eaa/  302!  Language=lv
+/contact/eaa  /ru/contact/eaa/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/contact/eaa  /en/contact/eaa/  302!
+/contact/eaa/  /vn/contact/eaa/  302!  Language=vi
+/contact/eaa/  /lv/contact/eaa/  302!  Language=lv
+/contact/eaa/  /ru/contact/eaa/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/contact/eaa/  /en/contact/eaa/  302!
+/contact/ea  /vn/contact/ea/  302!  Language=vi
+/contact/ea  /lv/contact/ea/  302!  Language=lv
+/contact/ea  /ru/contact/ea/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/contact/ea  /en/contact/ea/  302!
+/contact/ea/  /vn/contact/ea/  302!  Language=vi
+/contact/ea/  /lv/contact/ea/  302!  Language=lv
+/contact/ea/  /ru/contact/ea/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/contact/ea/  /en/contact/ea/  302!
+/contact/da  /vn/contact/da/  302!  Language=vi
+/contact/da  /lv/contact/da/  302!  Language=lv
+/contact/da  /ru/contact/da/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/contact/da  /en/contact/da/  302!
+/contact/da/  /vn/contact/da/  302!  Language=vi
+/contact/da/  /lv/contact/da/  302!  Language=lv
+/contact/da/  /ru/contact/da/  302!  Language=ru,uk,be,kk,uz,az,hy,ka
+/contact/da/  /en/contact/da/  302!
+
 /eaa   /vn/easy-ads-asia/   302!   Language=vi
 /eaa   /lv/easy-ads-asia/   302!   Language=lv
 /eaa   /ru/easy-ads-asia/   302!   Language=ru,uk,be,kk,uz,az,hy,ka
